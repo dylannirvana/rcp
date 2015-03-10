@@ -46,9 +46,11 @@ Gulp Styles
 5.0	Navigation and Footers
 	5.1 Main Footer
 	5.2 Main Navigation
-6.0 Bootstrap and WordPress overwrites
+6.0 Bootstrap
 	6.1 Bootstrap 
-	6.2 Wordpress import
+	6.2 Bootstrap Variable Overrides
+7.0	WordPress
+	7.1 Wordpress Overrides
 
 
 ------------------------------------------------
@@ -142,16 +144,23 @@ END TABLE OF CONTENTS
 @import "modules/nav";
 
 
-// 6.0 Bootstrap and WordPress overwrites
+// 6.0 Bootstrap and WordPress overrides
 /*--------------------------------------------------------------
 6.1 Bootstrap
 ----------------------------------------------------------*/
-@import "bootstrap";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss";
 
 /*--------------------------------------------------------------
-6.2 WordPress
+6.2 Bootstrap Variable Overrides
 ----------------------------------------------------------*/
-// @import "wordpress";
+@import "bootstrapOverride";
+
+
+// 7.0 Wordpress
+/*--------------------------------------------------------------
+6.2 WordPress overrides
+----------------------------------------------------------*/
+// @import "wordpress??";
 
 
 

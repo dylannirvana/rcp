@@ -3,87 +3,86 @@
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'install',
 1 verbose cli   '--save-dev',
-1 verbose cli   'gulp-minify-php' ]
+1 verbose cli   'ScrollMagic' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
-4 warn package.json RitzPerfect@0.0.1 No repository field.
-5 verbose readDependencies using package.json deps
-6 verbose cache add [ 'gulp-minify-php', null ]
-7 verbose cache add name=undefined spec="gulp-minify-php" args=["gulp-minify-php",null]
-8 verbose parsed url { protocol: null,
-8 verbose parsed url   slashes: null,
-8 verbose parsed url   auth: null,
-8 verbose parsed url   host: null,
-8 verbose parsed url   port: null,
-8 verbose parsed url   hostname: null,
-8 verbose parsed url   hash: null,
-8 verbose parsed url   search: null,
-8 verbose parsed url   query: null,
-8 verbose parsed url   pathname: 'gulp-minify-php',
-8 verbose parsed url   path: 'gulp-minify-php',
-8 verbose parsed url   href: 'gulp-minify-php' }
-9 silly lockFile c8017c71-gulp-minify-php gulp-minify-php
-10 verbose lock gulp-minify-php /Users/DylanNirvana/.npm/c8017c71-gulp-minify-php.lock
-11 silly lockFile c8017c71-gulp-minify-php gulp-minify-php
-12 silly lockFile c8017c71-gulp-minify-php gulp-minify-php
-13 verbose addNamed [ 'gulp-minify-php', '' ]
-14 verbose addNamed [ null, '*' ]
-15 silly lockFile dbcaa7f8-gulp-minify-php gulp-minify-php@
-16 verbose lock gulp-minify-php@ /Users/DylanNirvana/.npm/dbcaa7f8-gulp-minify-php.lock
-17 silly addNameRange { name: 'gulp-minify-php', range: '*', hasData: false }
-18 verbose request where is /gulp-minify-php
-19 verbose request registry https://registry.npmjs.org/
-20 verbose request id 0b956b2b142e6287
-21 verbose url raw /gulp-minify-php
-22 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-minify-php' ]
-23 verbose url resolved https://registry.npmjs.org/gulp-minify-php
-24 verbose request where is https://registry.npmjs.org/gulp-minify-php
-25 info trying registry request attempt 1 at 15:17:29
-26 http GET https://registry.npmjs.org/gulp-minify-php
-27 http 404 https://registry.npmjs.org/gulp-minify-php
-28 verbose headers { date: 'Sun, 08 Mar 2015 19:17:29 GMT',
-28 verbose headers   server: 'CouchDB/1.6.1 (Erlang OTP/R14B04)',
-28 verbose headers   'content-type': 'application/json',
-28 verbose headers   'cache-control': 'max-age=0',
-28 verbose headers   'content-length': '52',
-28 verbose headers   'accept-ranges': 'bytes',
-28 verbose headers   via: '1.1 varnish',
-28 verbose headers   age: '0',
-28 verbose headers   'x-served-by': 'cache-atl6227-ATL',
-28 verbose headers   'x-cache': 'MISS',
-28 verbose headers   'x-cache-hits': '0',
-28 verbose headers   'x-timer': 'S1425842249.637648,VS0,VE118',
-28 verbose headers   'keep-alive': 'timeout=10, max=50',
-28 verbose headers   connection: 'Keep-Alive' }
-29 silly registry.get cb [ 404,
-29 silly registry.get   { date: 'Sun, 08 Mar 2015 19:17:29 GMT',
-29 silly registry.get     server: 'CouchDB/1.6.1 (Erlang OTP/R14B04)',
-29 silly registry.get     'content-type': 'application/json',
-29 silly registry.get     'cache-control': 'max-age=0',
-29 silly registry.get     'content-length': '52',
-29 silly registry.get     'accept-ranges': 'bytes',
-29 silly registry.get     via: '1.1 varnish',
-29 silly registry.get     age: '0',
-29 silly registry.get     'x-served-by': 'cache-atl6227-ATL',
-29 silly registry.get     'x-cache': 'MISS',
-29 silly registry.get     'x-cache-hits': '0',
-29 silly registry.get     'x-timer': 'S1425842249.637648,VS0,VE118',
-29 silly registry.get     'keep-alive': 'timeout=10, max=50',
-29 silly registry.get     connection: 'Keep-Alive' } ]
-30 silly lockFile dbcaa7f8-gulp-minify-php gulp-minify-php@
-31 silly lockFile dbcaa7f8-gulp-minify-php gulp-minify-php@
-32 error 404 404 Not Found: gulp-minify-php
-32 error 404
-32 error 404 'gulp-minify-php' is not in the npm registry.
-32 error 404 You should bug the author to publish it
-32 error 404 It was specified as a dependency of 'RitzPerfect'
-32 error 404
-32 error 404 Note that you can also install from a
-32 error 404 tarball, folder, or http url, or git url.
-33 error System Darwin 14.3.0
-34 error command "node" "/usr/local/bin/npm" "install" "--save-dev" "gulp-minify-php"
-35 error cwd /Users/DylanNirvana/Desktop/rcp
-36 error node -v v0.10.33
-37 error npm -v 1.4.28
-38 error code E404
-39 verbose exit [ 1, true ]
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'ScrollMagic', null ]
+6 verbose cache add name=undefined spec="ScrollMagic" args=["ScrollMagic",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'ScrollMagic',
+7 verbose parsed url   path: 'ScrollMagic',
+7 verbose parsed url   href: 'ScrollMagic' }
+8 silly lockFile 98df0e8c-ScrollMagic ScrollMagic
+9 verbose lock ScrollMagic /Users/DylanNirvana/.npm/98df0e8c-ScrollMagic.lock
+10 silly lockFile 98df0e8c-ScrollMagic ScrollMagic
+11 silly lockFile 98df0e8c-ScrollMagic ScrollMagic
+12 verbose addNamed [ 'ScrollMagic', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 3646cf8d-ScrollMagic ScrollMagic@
+15 verbose lock ScrollMagic@ /Users/DylanNirvana/.npm/3646cf8d-ScrollMagic.lock
+16 silly addNameRange { name: 'ScrollMagic', range: '*', hasData: false }
+17 verbose request where is /ScrollMagic
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 0c3681fcea9679aa
+20 verbose url raw /ScrollMagic
+21 verbose url resolving [ 'https://registry.npmjs.org/', './ScrollMagic' ]
+22 verbose url resolved https://registry.npmjs.org/ScrollMagic
+23 verbose request where is https://registry.npmjs.org/ScrollMagic
+24 info trying registry request attempt 1 at 09:42:08
+25 http GET https://registry.npmjs.org/ScrollMagic
+26 http 404 https://registry.npmjs.org/ScrollMagic
+27 verbose headers { date: 'Mon, 09 Mar 2015 13:42:09 GMT',
+27 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '52',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   'x-served-by': 'cache-jfk1020-JFK',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1425908529.330219,VS0,VE22',
+27 verbose headers   'keep-alive': 'timeout=10, max=50',
+27 verbose headers   connection: 'Keep-Alive' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { date: 'Mon, 09 Mar 2015 13:42:09 GMT',
+28 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '52',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     'x-served-by': 'cache-jfk1020-JFK',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1425908529.330219,VS0,VE22',
+28 silly registry.get     'keep-alive': 'timeout=10, max=50',
+28 silly registry.get     connection: 'Keep-Alive' } ]
+29 silly lockFile 3646cf8d-ScrollMagic ScrollMagic@
+30 silly lockFile 3646cf8d-ScrollMagic ScrollMagic@
+31 error 404 404 Not Found: ScrollMagic
+31 error 404
+31 error 404 'ScrollMagic' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'RitzPerfect'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Darwin 14.3.0
+33 error command "node" "/usr/local/bin/npm" "install" "--save-dev" "ScrollMagic"
+34 error cwd /Users/DylanNirvana/Desktop/rcp
+35 error node -v v0.10.33
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]

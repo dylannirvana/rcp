@@ -1,21 +1,25 @@
-var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    browserify = require('gulp-browserify'),
-    compass = require('gulp-compass'),
-    connect = require('gulp-connect'),
-    gulpif = require('gulp-if'),
-    uglify = require('gulp-uglify'),
-    minifyHTML = require('gulp-minify-html'),
-    concat = require('gulp-concat'),
-    path = require('path');
-    // find a php npm and require??? minify php???? 
-    // where do i set the port??? 
-    // what about the database????
+var gulp          = require('gulp'),
+    gutil         = require('gulp-util'),
+    browserify    = require('gulp-browserify'),
+    compass       = require('gulp-compass'),
+    connect       = require('gulp-connect'),
+    gulpif        = require('gulp-if'),
+    uglify        = require('gulp-uglify'),
+    minifyHTML    = require('gulp-minify-html'),
+    concat        = require('gulp-concat'),
+    jquery        = require('jquery'),
+    path          = require('path');
+    
+// I am not sure if I need this
+var bootstrap     = require [
+  'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
+  'node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss'
+];
 
 var env,
     jsSources,
     sassSources,
-    htmlSources, // can this be phpSources?
+    htmlSources, 
     outputDir,
     sassStyle;
 
@@ -30,13 +34,16 @@ if (env==='development') {
   sassStyle = 'compressed';
 }
 
+// Note: place libraries below as requirements
 jsSources = [
   'components/scripts/jqloader.js',
   'components/scripts/TweenMax.min.js',
   'components/scripts/jquery.scrollmagic.min.js',
+  'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
   'components/scripts/script.js'
 ];
-sassSources = ['components/sass/style.scss'];
+sassSources = ['components/sass/style.scss'
+];
 htmlSources = [outputDir + '*.html'];
 // phpSources = [outputDir + '*.php']; ????
 
