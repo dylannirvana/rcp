@@ -7,14 +7,9 @@ var gulp          = require('gulp'),
     uglify        = require('gulp-uglify'),
     minifyHTML    = require('gulp-minify-html'),
     concat        = require('gulp-concat'),
-    jquery        = require('jquery'),
+    bootstrap     = require('jquery', 'bootstrap-sass'),
     path          = require('path');
     
-// I am not sure if I need this
-var bootstrap     = require [
-  'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
-  'node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss'
-];
 
 var env,
     jsSources,
@@ -42,8 +37,10 @@ jsSources = [
   'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
   'components/scripts/script.js'
 ];
-sassSources = ['components/sass/style.scss'
+sassSources = [
+  'components/sass/style.scss'
 ];
+
 htmlSources = [outputDir + '*.html'];
 // phpSources = [outputDir + '*.php']; ????
 
@@ -66,6 +63,7 @@ gulp.task('compass', function() {
       style: sassStyle,
       require: ['susy', 'breakpoint']
     })
+    // .pipe(concat('style.css')) // I added this line. Let's see if it works
     .on('error', gutil.log))
 //    .pipe(gulp.dest( outputDir + 'css'))
     .pipe(connect.reload())

@@ -63,7 +63,7 @@ END TABLE OF CONTENTS
 1.1 Compass
 --------------------------------------------------------------*/
 @import "compass";
-@import "compass/reset";
+// @import "compass/reset";
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 @import "compass/css3/filter";
@@ -148,13 +148,17 @@ END TABLE OF CONTENTS
 /*--------------------------------------------------------------
 6.1 Bootstrap
 ----------------------------------------------------------*/
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-compass";
+// @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "../bower_components/bootstrap";
+// @import "bootstrap";
 /*--------------------------------------------------------------
 6.2 Bootstrap Variable Overrides
 ----------------------------------------------------------*/
-@import "bootstrapOverride";
-
+ 
 
 // 7.0 Wordpress
 /*--------------------------------------------------------------

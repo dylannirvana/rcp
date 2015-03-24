@@ -22,7 +22,7 @@ return null!=s&&(a="number"==typeof s||"="!==s.charAt(1)?Number(s)-i:parseInt(s.
 /* ScrollMagic v1.0.8 | (c) Jan Paepke, @janpaepke | license & info: http://janpaepke.github.io/ScrollMagic */
 !function($){ScrollMagic=function(e){"use strict";var t="ScrollMagic",r={container:window,vertical:!0,globalSceneOptions:{},loglevel:2},i=this,o=$.extend({},r,e),s=[],a=!1,l=0,c="PAUSED",g=!0,u=0,d=!1,f=!0,h=function(){if($.each(o,function(e){r.hasOwnProperty(e)||(m(2,'WARNING: Unknown option "'+e+'"'),delete o[e])}),o.container=$(o.container).first(),0===o.container.length)return void m(1,"ERROR creating object ScrollMagic: No valid scroll container supplied");g=!$.contains(document,o.container.get(0)),u=o.vertical?o.container.height():o.container.width(),o.container.on("scroll resize",w);try{TweenLite.ticker.addEventListener("tick",v),d=!0}catch(e){o.container.on("scroll resize",v),d=!1}m(3,"added new "+t+" controller")},p=function(){return o.vertical?o.container.scrollTop():o.container.scrollLeft()},v=function(){if(a&&f){var e=$.isArray(a)?a:s,t=l;l=i.scrollPos();var n=l-t;c=0===n?"PAUSED":n>0?"FORWARD":"REVERSE",i.updateScene(e,!0),0===e.length&&o.loglevel>=3&&m(3,"updating 0 Scenes (nothing added to controller)"),a=!1}},w=function(e){"resize"==e.type&&(u=o.vertical?o.container.height():o.container.width()),a=!0},m=function(e){if(o.loglevel>=e){var r="("+t+") ->",i=Array.prototype.splice.call(arguments,1),s=Function.prototype.bind.call(n,window);i.unshift(e,r),s.apply(window,i)}};return this.addScene=function(e){return $.isArray(e)?$.each(e,function(e,t){i.addScene(t)}):e.parent()!=i?e.addTo(i):-1==$.inArray(s,e)&&(s.push(e),$.each(o.globalSceneOptions,function(t,n){e[t]&&e[t].call(e,n)}),m(3,"added Scene ("+s.length+" total)")),i},this.removeScene=function(e){if($.isArray(e))$.each(e,function(e,t){i.removeScene(t)});else{var t=$.inArray(e,s);t>-1&&(s.splice(t,1),e.remove(),m(3,"removed Scene ("+s.length+" total)"))}return i},this.updateScene=function(e,t){return $.isArray(e)?$.each(e,function(n,r){m(3,"updating Scene "+(n+1)+"/"+e.length+" ("+s.length+" total)"),i.updateScene(r,t)}):t?e.update(!0):($.isArray(a)||(a=[]),-1==$.inArray(e,a)&&a.push(e)),i},this.update=function(e){return w({type:"resize"}),e&&v(),i},this.scrollPos=function(e){return arguments.length?($.isFunction(e)||(e=function(){return e}),p=e,i):p.call(i)},this.info=function(e){var t={size:u,vertical:o.vertical,scrollPos:l,scrollDirection:c,container:o.container,isDocument:g};return arguments.length?void 0!==t[e]?t[e]:void m(1,'ERROR: option "'+e+'" is not available'):t},this.loglevel=function(e){return arguments.length?(o.loglevel!=e&&(o.loglevel=e),i):o.loglevel},this.enabled=function(e){return arguments.length?(f!=e&&(f=!!e,i.updateScene(s,!0)),i):f},this.destroy=function(e){for(;s.length>0;){var n=s[s.length-1];n.destroy(e)}return o.container.off("scroll resize",w),d?TweenLite.ticker.removeEventListener("tick",v):o.container.off("scroll resize",v),m(3,"destroyed "+t+" (reset: "+(e?"true":"false")+")"),null},h(),i},ScrollScene=function(e){"use strict";var t,i,o,s,a=["onCenter","onEnter","onLeave"],l="ScrollScene",c={duration:0,offset:0,triggerElement:null,triggerHook:a[0],reverse:!0,tweenChanges:!1,loglevel:2},g=this,u=$.extend({},c,e),d="BEFORE",f=0,h={start:0,end:0},p=!0,v=function(){m(),g.on("change.internal",function(e){m(),"loglevel"!=e.what&&"tweenChanges"!=e.what&&("reverse"!=e.what&&null===u.triggerElement&&R(),g.update(),("DURING"!==d&&"duration"==e.what||"AFTER"===d&&0===u.duration)&&y())}),g.on("progress.internal",function(){E(),y()})},w=function(e){if(u.loglevel>=e){var t="("+l+") ->",r=Array.prototype.splice.call(arguments,1),i=Function.prototype.bind.call(n,window);r.unshift(e,t),i.apply(window,r)}},m=function(){if($.each(u,function(e){c.hasOwnProperty(e)||(w(2,'WARNING: Unknown option "'+e+'"'),delete u[e])}),u.duration=parseFloat(u.duration),(!$.isNumeric(u.duration)||u.duration<0)&&(w(1,'ERROR: Invalid value for option "duration":',u.duration),u.duration=c.duration),u.offset=parseFloat(u.offset),$.isNumeric(u.offset)||(w(1,'ERROR: Invalid value for option "offset":',u.offset),u.offset=c.offset),null!==u.triggerElement&&0===$(u.triggerElement).length&&(w(1,'ERROR: Element defined in option "triggerElement" was not found:',u.triggerElement),u.triggerElement=c.triggerElement),$.isNumeric(u.triggerHook)||-1!=$.inArray(u.triggerHook,a)||(w(1,'ERROR: Invalid value for option "triggerHook": ',u.triggerHook),u.triggerHook=c.triggerHook),!$.isNumeric(u.loglevel)||u.loglevel<0||u.loglevel>3){var e=u.loglevel;u.loglevel=c.loglevel,w(1,'ERROR: Invalid value for option "loglevel":',e)}if(i&&t&&u.triggerElement&&u.loglevel>=2){var n=i.getTweensOf($(u.triggerElement)),r=t.info("vertical");$.each(n,function(e,t){var n=t.vars.css||t.vars,i=r?void 0!==n.top||void 0!==n.bottom:void 0!==n.left||void 0!==n.right;return i?(w(2,"WARNING: Tweening the position of the trigger element affects the scene timing and should be avoided!"),!1):void 0})}},R=function(){h={start:g.triggerOffset()},t&&(h.start-=t.info("size")*g.triggerHook()),h.end=h.start+u.duration},E=function(e){var t=e>=0&&1>=e?e:f;if(i){if(-1===i.repeat())if(("DURING"===d||"AFTER"===d&&0===u.duration)&&i.paused())i.play();else{if("DURING"===d||i.paused())return!1;i.pause()}else{if(t==i.progress())return!1;0===u.duration?"AFTER"==d?i.play():i.reverse():u.tweenChanges?i.tweenTo(t*i.duration()):i.progress(t).pause()}return!0}return!1},y=function(e){if(o&&t){var n=t.info();if(e||"DURING"!==d&&("AFTER"!==d||0!==u.duration)){var i={position:s.inFlow?"relative":"absolute",top:0,left:0},a=o.css("position")!=i.position;s.pushFollowers?"AFTER"===d&&0===parseFloat(s.spacer.css("padding-top"))?a=!0:"BEFORE"===d&&0===parseFloat(s.spacer.css("padding-bottom"))&&(a=!0):i[n.vertical?"top":"left"]=u.duration*f,o.css(i),a&&(o.removeClass(s.pinnedClass),S())}else{"fixed"!=o.css("position")&&(o.css("position","fixed"),S(),o.addClass(s.pinnedClass));var l=r(s.spacer,!0),c=u.reverse||0===u.duration?n.scrollPos-h.start:Math.round(f*u.duration*10)/10;l.top-=parseFloat(s.spacer.css("margin-top")),l[n.vertical?"top":"left"]+=c,o.css({top:l.top,left:l.left})}}},S=function(){if(o&&t&&s.inFlow){var e="AFTER"===d,n="BEFORE"===d,r="DURING"===d,i="fixed"==o.css("position"),a=t.info("vertical"),l=s.spacer.children().first(),c=$.inArray(s.spacer.css("display"),["block","flex","list-item","table","-webkit-box"])>-1,g={};c?(g["margin-top"]=n||r&&i?o.css("margin-top"):"auto",g["margin-bottom"]=e||r&&i?o.css("margin-bottom"):"auto"):g["margin-top"]=g["margin-bottom"]="auto",s.relSize.width?i?$(window).width()==s.spacer.parent().width()?o.css("width","inherit"):o.css("width",s.spacer.width()):o.css("width","100%"):(g["min-width"]=l.outerWidth(!0),g.width=i?g["min-width"]:"auto"),s.relSize.height?i?$(window).height()==s.spacer.parent().height()?o.css("height","inherit"):o.css("height",s.spacer.height()):o.css("height","100%"):(g["min-height"]=l.outerHeight(!c),g.height=i?g["min-height"]:"auto"),s.pushFollowers&&(g["padding"+(a?"Top":"Left")]=u.duration*f,g["padding"+(a?"Bottom":"Right")]=u.duration*(1-f)),s.spacer.css(g)}},b=function(){t&&o&&"DURING"===d&&(t.info("isDocument")||y())},F=function(){t&&o&&("DURING"===d||"AFTER"===d&&0===u.duration)&&(s.relSize.width&&$(window).width()!=s.spacer.parent().width()||s.relSize.height&&$(window).height()!=s.spacer.parent().height())&&S()};return this.parent=function(){return t},this.duration=function(e){return arguments.length?(u.duration!=e&&(u.duration=e,g.trigger("change",{what:"duration",newval:e})),g):u.duration},this.offset=function(e){return arguments.length?(u.offset!=e&&(u.offset=e,g.trigger("change",{what:"offset",newval:e})),g):u.offset},this.triggerElement=function(e){return arguments.length?(u.triggerElement!=e&&(u.triggerElement=e,g.trigger("change",{what:"triggerElement",newval:e})),g):u.triggerElement},this.triggerHook=function(e){if(!arguments.length){var t;if($.isNumeric(u.triggerHook))t=u.triggerHook;else switch(u.triggerHook){case"onCenter":t=.5;break;case"onLeave":t=0;break;case"onEnter":default:t=1}return t}return u.triggerHook!=e&&(u.triggerHook=e,g.trigger("change",{what:"triggerHook",newval:e})),g},this.reverse=function(e){return arguments.length?(u.reverse!=e&&(u.reverse=e,g.trigger("change",{what:"reverse",newval:e})),g):u.reverse},this.tweenChanges=function(e){return arguments.length?(u.tweenChanges!=e&&(u.tweenChanges=e,g.trigger("change",{what:"tweenChanges",newval:e})),g):u.tweenChanges},this.loglevel=function(e){return arguments.length?(u.loglevel!=e&&(u.loglevel=e,g.trigger("change",{what:"loglevel",newval:e})),g):u.loglevel},this.state=function(){return d},this.startPosition=function(){return this.triggerOffset()},this.triggerOffset=function(){var e=u.offset;if(t){var n=t.info();if(null===u.triggerElement)e+=n.size*g.triggerHook();else{for(var i=$(u.triggerElement).first(),o=r(t.info("container"));i.parent().data("ScrollMagicPinSpacer");)i=i.parent();var s=r(i);n.isDocument||(o.top-=n.scrollPos,o.left-=n.scrollPos),e+=n.vertical?s.top-o.top:s.left-o.left}}return e},this.scrollOffset=function(){return h.start},this.update=function(e){if(t)if(e)if(t.enabled()&&p){var n,r=t.info("scrollPos");null!==u.triggerElement&&R(),n=u.duration>0?(r-h.start)/(h.end-h.start):r>=h.start?1:0,g.trigger("update",{startPos:h.start,endPos:h.end,scrollPos:r}),g.progress(n)}else o&&"fixed"==o.css("position")&&y(!0);else t.updateScene(g,!1);return g},this.progress=function(e){if(arguments.length){var n=!1,r=d,i=t?t.info("scrollDirection"):"PAUSED";if(0>=e&&"BEFORE"!==d&&(e>=f||u.reverse)?(f=0,d="BEFORE",n=!0):e>0&&1>e&&(e>=f||u.reverse)?(f=e,d="DURING",n=!0):e>=1&&"AFTER"!==d?(f=1,d="AFTER",n=!0):"DURING"!==d||u.reverse||y(),n){var o={progress:f,state:d,scrollDirection:i},s=d!=r,a="BEFORE"===d&&0===u.duration;s&&(("DURING"===d||0===u.duration)&&g.trigger("enter",o),("BEFORE"===d||"BEFORE"===r)&&g.trigger(a?"end":"start",o)),g.trigger("progress",o),s&&(("AFTER"===d||"AFTER"===r)&&g.trigger(a?"start":"end",o),("DURING"!==d||0===u.duration)&&g.trigger("leave",o))}return g}return f},this.setTween=function(e){i&&g.removeTween();try{i=new TimelineMax({smoothChildTiming:!0}).add(e).pause()}catch(e){w(1,"ERROR calling method 'setTween()': Supplied argument is not a valid TweenMaxObject")}finally{return e.repeat&&-1===e.repeat()&&(i.repeat(-1),i.yoyo(e.yoyo())),m(),w(3,"added tween"),E(),g}},this.removeTween=function(e){return i&&(e&&E(0),i.kill(),i=void 0,w(3,"removed tween (reset: "+(e?"true":"false")+")")),g},this.setPin=function(e,t){var n={pushFollowers:!0,spacerClass:"scrollmagic-pin-spacer",pinnedClass:""};if(t=$.extend({},n,t),e=$(e).first(),0===e.length)return w(1,"ERROR calling method 'setPin()': Invalid pin element supplied."),g;if("fixed"==e.css("position"))return w(1,"ERROR: Pin does not work with elements that are positioned 'fixed'."),g;if(o){if(o===e)return g;g.removePin()}o=e,o.parent().hide();var r="absolute"!=o.css("position"),i=o.css(["display","top","left","bottom","right"]),a=o.css(["width","height"]);o.parent().show();var l=$("<div></div>").addClass(t.spacerClass).css(i).data("ScrollMagicPinSpacer",!0).css({position:r?"relative":"absolute","margin-left":"auto","margin-right":"auto","box-sizing":"content-box","-moz-box-sizing":"content-box","-webkit-box-sizing":"content-box"});return!r&&t.pushFollowers&&(w(2,"WARNING: If the pinned element is positioned absolutely pushFollowers is disabled."),t.pushFollowers=!1),s={spacer:l,relSize:{width:"%"===a.width.slice(-1),height:"%"===a.height.slice(-1)},pushFollowers:t.pushFollowers,inFlow:r,origStyle:o.attr("style"),pinnedClass:t.pinnedClass},s.relSize.width&&l.css("width",a.width),s.relSize.height&&l.css("height",a.height),o.before(l).appendTo(l).css({position:r?"relative":"absolute",top:"auto",left:"auto",bottom:"auto",right:"auto"}),$(window).on("scroll resize",b),w(3,"added pin"),y(),g},this.removePin=function(e){return o&&(e||!t?(o.insertBefore(s.spacer).attr("style",s.origStyle),s.spacer.remove()):"DURING"===d&&y(!0),$(window).off("scroll resize",b),o=void 0,w(3,"removed pin (reset: "+(e?"true":"false")+")")),g},this.addTo=function(e){return t!=e?(t&&t.removeScene(g),t=e,m(),R(),S(),t.info("container").on("resize",F),w(3,"added "+l+" to controller"),e.addScene(g),g.update(),g):void 0},this.enabled=function(e){return arguments.length?(p!=e&&(p=!!e,g.update(!0)),g):p},this.remove=function(){if(t){t.info("container").off("resize",F);var e=t;t=void 0,w(3,"removed "+l+" from controller"),e.removeScene(g)}return g},this.destroy=function(e){return this.removeTween(e),this.removePin(e),this.remove(),this.off("start end enter leave progress change update change.internal progress.internal"),w(3,"destroyed "+l+" (reset: "+(e?"true":"false")+")"),null},this.on=function(e,t){if($.isFunction(t)){var n=$.trim(e).toLowerCase().replace(/(\w+)\.(\w+)/g,"$1."+l+"_$2").replace(/( |^)(\w+)( |$)/g,"$1$2."+l+"$3");$(g).on(n,t)}else w(1,"ERROR calling method 'on()': Supplied argument is not a valid callback!");return g},this.off=function(e,t){var n=$.trim(e).toLowerCase().replace(/(\w+)\.(\w+)/g,"$1."+l+"_$2").replace(/( |^)(\w+)( |$)/g,"$1$2."+l+"$3");return $(g).off(n,t),g},this.trigger=function(e,t){w(3,"event fired:",e,"->",t);var n={type:$.trim(e).toLowerCase(),target:g};return $.isPlainObject(t)&&(n=$.extend({},t,n)),$(g).trigger(n),g},v(),g};var e=window.console=window.console||{},t=["error","warn","log"];e.log||(e.log=$.noop),$.each(t,function(t,n){e[n]||(e[n]=e.log)});var n=function(n){(n>t.length||0>=n)&&(n=t.length);var r=new Date,i=("0"+r.getHours()).slice(-2)+":"+("0"+r.getMinutes()).slice(-2)+":"+("0"+r.getSeconds()).slice(-2)+":"+("00"+r.getMilliseconds()).slice(-3),o=t[n-1],s=Array.prototype.splice.call(arguments,1),a=Function.prototype.bind.call(e[o],e);s.unshift(i),a.apply(e,s)},r=function(e,t){var n={top:0,left:0},r=e[0];if(r)if(r.getBoundingClientRect){var i=r.getBoundingClientRect();n.top=i.top,n.left=i.left,t||(n.top+=$(document).scrollTop(),n.left+=$(document).scrollLeft())}else n=e.offset()||n,t&&(n.top-=$(document).scrollTop(),n.left-=$(document).scrollLeft());return n}}(jQuery);
 /*!
- * Bootstrap v3.3.2 (http://getbootstrap.com)
+ * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
@@ -40,7 +40,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: transition.js v3.3.2
+ * Bootstrap: transition.js v3.3.4
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -100,7 +100,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: alert.js v3.3.2
+ * Bootstrap: alert.js v3.3.4
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -119,7 +119,7 @@ if (typeof jQuery === 'undefined') {
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.3.2'
+  Alert.VERSION = '3.3.4'
 
   Alert.TRANSITION_DURATION = 150
 
@@ -195,7 +195,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: button.js v3.3.2
+ * Bootstrap: button.js v3.3.4
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -215,7 +215,7 @@ if (typeof jQuery === 'undefined') {
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.2'
+  Button.VERSION  = '3.3.4'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -312,7 +312,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: carousel.js v3.3.2
+ * Bootstrap: carousel.js v3.3.4
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -330,10 +330,10 @@ if (typeof jQuery === 'undefined') {
     this.$element    = $(element)
     this.$indicators = this.$element.find('.carousel-indicators')
     this.options     = options
-    this.paused      =
-    this.sliding     =
-    this.interval    =
-    this.$active     =
+    this.paused      = null
+    this.sliding     = null
+    this.interval    = null
+    this.$active     = null
     this.$items      = null
 
     this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
@@ -343,7 +343,7 @@ if (typeof jQuery === 'undefined') {
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.3.2'
+  Carousel.VERSION  = '3.3.4'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -550,7 +550,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.2
+ * Bootstrap: collapse.js v3.3.4
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -567,7 +567,8 @@ if (typeof jQuery === 'undefined') {
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $(this.options.trigger).filter('[href="#' + element.id + '"], [data-target="#' + element.id + '"]')
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
     if (this.options.parent) {
@@ -579,13 +580,12 @@ if (typeof jQuery === 'undefined') {
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.2'
+  Collapse.VERSION  = '3.3.4'
 
   Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
-    toggle: true,
-    trigger: '[data-toggle="collapse"]'
+    toggle: true
   }
 
   Collapse.prototype.dimension = function () {
@@ -723,7 +723,7 @@ if (typeof jQuery === 'undefined') {
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && option == 'show') options.toggle = false
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -754,7 +754,7 @@ if (typeof jQuery === 'undefined') {
 
     var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
-    var option  = data ? 'toggle' : $.extend({}, $this.data(), { trigger: this })
+    var option  = data ? 'toggle' : $this.data()
 
     Plugin.call($target, option)
   })
@@ -762,7 +762,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.2
+ * Bootstrap: dropdown.js v3.3.4
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -782,7 +782,7 @@ if (typeof jQuery === 'undefined') {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.2'
+  Dropdown.VERSION = '3.3.4'
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -835,7 +835,7 @@ if (typeof jQuery === 'undefined') {
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.divider):visible a'
+    var desc = ' li:not(.disabled):visible a'
     var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
 
     if (!$items.length) return
@@ -924,7 +924,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: modal.js v3.3.2
+ * Bootstrap: modal.js v3.3.4
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -939,12 +939,15 @@ if (typeof jQuery === 'undefined') {
   // ======================
 
   var Modal = function (element, options) {
-    this.options        = options
-    this.$body          = $(document.body)
-    this.$element       = $(element)
-    this.$backdrop      =
-    this.isShown        = null
-    this.scrollbarWidth = 0
+    this.options             = options
+    this.$body               = $(document.body)
+    this.$element            = $(element)
+    this.$dialog             = this.$element.find('.modal-dialog')
+    this.$backdrop           = null
+    this.isShown             = null
+    this.originalBodyPad     = null
+    this.scrollbarWidth      = 0
+    this.ignoreBackdropClick = false
 
     if (this.options.remote) {
       this.$element
@@ -955,7 +958,7 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  Modal.VERSION  = '3.3.2'
+  Modal.VERSION  = '3.3.4'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -989,6 +992,12 @@ if (typeof jQuery === 'undefined') {
 
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
+    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
+      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
+        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
+      })
+    })
+
     this.backdrop(function () {
       var transition = $.support.transition && that.$element.hasClass('fade')
 
@@ -1000,7 +1009,6 @@ if (typeof jQuery === 'undefined') {
         .show()
         .scrollTop(0)
 
-      if (that.options.backdrop) that.adjustBackdrop()
       that.adjustDialog()
 
       if (transition) {
@@ -1016,7 +1024,7 @@ if (typeof jQuery === 'undefined') {
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        that.$dialog // wait for modal to slide in
           .one('bsTransitionEnd', function () {
             that.$element.trigger('focus').trigger(e)
           })
@@ -1045,6 +1053,9 @@ if (typeof jQuery === 'undefined') {
       .removeClass('in')
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
+      .off('mouseup.dismiss.bs.modal')
+
+    this.$dialog.off('mousedown.dismiss.bs.modal')
 
     $.support.transition && this.$element.hasClass('fade') ?
       this.$element
@@ -1105,13 +1116,18 @@ if (typeof jQuery === 'undefined') {
       var doAnimate = $.support.transition && animate
 
       this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-        .prependTo(this.$element)
-        .on('click.dismiss.bs.modal', $.proxy(function (e) {
-          if (e.target !== e.currentTarget) return
-          this.options.backdrop == 'static'
-            ? this.$element[0].focus.call(this.$element[0])
-            : this.hide.call(this)
-        }, this))
+        .appendTo(this.$body)
+
+      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
+        if (this.ignoreBackdropClick) {
+          this.ignoreBackdropClick = false
+          return
+        }
+        if (e.target !== e.currentTarget) return
+        this.options.backdrop == 'static'
+          ? this.$element[0].focus()
+          : this.hide()
+      }, this))
 
       if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
 
@@ -1146,14 +1162,7 @@ if (typeof jQuery === 'undefined') {
   // these following methods are used to handle overflowing modals
 
   Modal.prototype.handleUpdate = function () {
-    if (this.options.backdrop) this.adjustBackdrop()
     this.adjustDialog()
-  }
-
-  Modal.prototype.adjustBackdrop = function () {
-    this.$backdrop
-      .css('height', 0)
-      .css('height', this.$element[0].scrollHeight)
   }
 
   Modal.prototype.adjustDialog = function () {
@@ -1173,17 +1182,23 @@ if (typeof jQuery === 'undefined') {
   }
 
   Modal.prototype.checkScrollbar = function () {
-    this.bodyIsOverflowing = document.body.scrollHeight > document.documentElement.clientHeight
+    var fullWindowWidth = window.innerWidth
+    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
+      var documentElementRect = document.documentElement.getBoundingClientRect()
+      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
+    }
+    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
     this.scrollbarWidth = this.measureScrollbar()
   }
 
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+    this.originalBodyPad = document.body.style.paddingRight || ''
     if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
   Modal.prototype.resetScrollbar = function () {
-    this.$body.css('padding-right', '')
+    this.$body.css('padding-right', this.originalBodyPad)
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
@@ -1249,7 +1264,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tooltip.js v3.3.2
+ * Bootstrap: tooltip.js v3.3.4
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
@@ -1265,17 +1280,17 @@ if (typeof jQuery === 'undefined') {
   // ===============================
 
   var Tooltip = function (element, options) {
-    this.type       =
-    this.options    =
-    this.enabled    =
-    this.timeout    =
-    this.hoverState =
+    this.type       = null
+    this.options    = null
+    this.enabled    = null
+    this.timeout    = null
+    this.hoverState = null
     this.$element   = null
 
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.3.2'
+  Tooltip.VERSION  = '3.3.4'
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -1301,6 +1316,10 @@ if (typeof jQuery === 'undefined') {
     this.$element  = $(element)
     this.options   = this.getOptions(options)
     this.$viewport = this.options.viewport && $(this.options.viewport.selector || this.options.viewport)
+
+    if (this.$element[0] instanceof document.constructor && !this.options.selector) {
+      throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
+    }
 
     var triggers = this.options.trigger.split(' ')
 
@@ -1522,10 +1541,10 @@ if (typeof jQuery === 'undefined') {
     this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
   }
 
-  Tooltip.prototype.replaceArrow = function (delta, dimension, isHorizontal) {
+  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
     this.arrow()
-      .css(isHorizontal ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
-      .css(isHorizontal ? 'top' : 'left', '')
+      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
+      .css(isVertical ? 'top' : 'left', '')
   }
 
   Tooltip.prototype.setContent = function () {
@@ -1538,7 +1557,7 @@ if (typeof jQuery === 'undefined') {
 
   Tooltip.prototype.hide = function (callback) {
     var that = this
-    var $tip = this.tip()
+    var $tip = $(this.$tip)
     var e    = $.Event('hide.bs.' + this.type)
 
     function complete() {
@@ -1555,7 +1574,7 @@ if (typeof jQuery === 'undefined') {
 
     $tip.removeClass('in')
 
-    $.support.transition && this.$tip.hasClass('fade') ?
+    $.support.transition && $tip.hasClass('fade') ?
       $tip
         .one('bsTransitionEnd', complete)
         .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
@@ -1699,7 +1718,7 @@ if (typeof jQuery === 'undefined') {
       var data    = $this.data('bs.tooltip')
       var options = typeof option == 'object' && option
 
-      if (!data && option == 'destroy') return
+      if (!data && /destroy|hide/.test(option)) return
       if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -1722,7 +1741,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.3.2
+ * Bootstrap: popover.js v3.3.4
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -1742,7 +1761,7 @@ if (typeof jQuery === 'undefined') {
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.3.2'
+  Popover.VERSION  = '3.3.4'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -1798,11 +1817,6 @@ if (typeof jQuery === 'undefined') {
     return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
   }
 
-  Popover.prototype.tip = function () {
-    if (!this.$tip) this.$tip = $(this.options.template)
-    return this.$tip
-  }
-
 
   // POPOVER PLUGIN DEFINITION
   // =========================
@@ -1813,7 +1827,7 @@ if (typeof jQuery === 'undefined') {
       var data    = $this.data('bs.popover')
       var options = typeof option == 'object' && option
 
-      if (!data && option == 'destroy') return
+      if (!data && /destroy|hide/.test(option)) return
       if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -1836,7 +1850,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.2
+ * Bootstrap: scrollspy.js v3.3.4
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -1851,10 +1865,8 @@ if (typeof jQuery === 'undefined') {
   // ==========================
 
   function ScrollSpy(element, options) {
-    var process  = $.proxy(this.process, this)
-
-    this.$body          = $('body')
-    this.$scrollElement = $(element).is('body') ? $(window) : $(element)
+    this.$body          = $(document.body)
+    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target || '') + ' .nav li > a'
     this.offsets        = []
@@ -1862,12 +1874,12 @@ if (typeof jQuery === 'undefined') {
     this.activeTarget   = null
     this.scrollHeight   = 0
 
-    this.$scrollElement.on('scroll.bs.scrollspy', process)
+    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
     this.refresh()
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.2'
+  ScrollSpy.VERSION  = '3.3.4'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -1878,19 +1890,18 @@ if (typeof jQuery === 'undefined') {
   }
 
   ScrollSpy.prototype.refresh = function () {
-    var offsetMethod = 'offset'
-    var offsetBase   = 0
+    var that          = this
+    var offsetMethod  = 'offset'
+    var offsetBase    = 0
+
+    this.offsets      = []
+    this.targets      = []
+    this.scrollHeight = this.getScrollHeight()
 
     if (!$.isWindow(this.$scrollElement[0])) {
       offsetMethod = 'position'
       offsetBase   = this.$scrollElement.scrollTop()
     }
-
-    this.offsets = []
-    this.targets = []
-    this.scrollHeight = this.getScrollHeight()
-
-    var self     = this
 
     this.$body
       .find(this.selector)
@@ -1906,8 +1917,8 @@ if (typeof jQuery === 'undefined') {
       })
       .sort(function (a, b) { return a[0] - b[0] })
       .each(function () {
-        self.offsets.push(this[0])
-        self.targets.push(this[1])
+        that.offsets.push(this[0])
+        that.targets.push(this[1])
       })
   }
 
@@ -1936,7 +1947,7 @@ if (typeof jQuery === 'undefined') {
     for (i = offsets.length; i--;) {
       activeTarget != targets[i]
         && scrollTop >= offsets[i]
-        && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+        && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])
         && this.activate(targets[i])
     }
   }
@@ -1947,8 +1958,8 @@ if (typeof jQuery === 'undefined') {
     this.clear()
 
     var selector = this.selector +
-        '[data-target="' + target + '"],' +
-        this.selector + '[href="' + target + '"]'
+      '[data-target="' + target + '"],' +
+      this.selector + '[href="' + target + '"]'
 
     var active = $(selector)
       .parents('li')
@@ -2012,7 +2023,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tab.js v3.3.2
+ * Bootstrap: tab.js v3.3.4
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -2030,7 +2041,7 @@ if (typeof jQuery === 'undefined') {
     this.element = $(element)
   }
 
-  Tab.VERSION = '3.3.2'
+  Tab.VERSION = '3.3.4'
 
   Tab.TRANSITION_DURATION = 150
 
@@ -2101,7 +2112,7 @@ if (typeof jQuery === 'undefined') {
         element.removeClass('fade')
       }
 
-      if (element.parent('.dropdown-menu')) {
+      if (element.parent('.dropdown-menu').length) {
         element
           .closest('li.dropdown')
             .addClass('active')
@@ -2166,7 +2177,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: affix.js v3.3.2
+ * Bootstrap: affix.js v3.3.4
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -2188,14 +2199,14 @@ if (typeof jQuery === 'undefined') {
       .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
     this.$element     = $(element)
-    this.affixed      =
-    this.unpin        =
+    this.affixed      = null
+    this.unpin        = null
     this.pinnedOffset = null
 
     this.checkPosition()
   }
 
-  Affix.VERSION  = '3.3.2'
+  Affix.VERSION  = '3.3.4'
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 
@@ -2245,7 +2256,7 @@ if (typeof jQuery === 'undefined') {
     var offset       = this.options.offset
     var offsetTop    = offset.top
     var offsetBottom = offset.bottom
-    var scrollHeight = $('body').height()
+    var scrollHeight = $(document.body).height()
 
     if (typeof offset != 'object')         offsetBottom = offsetTop = offset
     if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
@@ -2328,7 +2339,196 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-// THIS IS A TEST. CAN YOU SEE ME?
+// HULLO FROM NODE HOWDY HOWDY
+// Typekit
+  (function(d) {
+    var config = {
+      kitId: 'pct7efk',
+      scriptTimeout: 3000
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+// END Typekit
+
+$(function() {
+  var topoffset = 42;
+
+  var isTouch = 'ontouchstart' in document.documentElement;
+
+  //window height
+  var wheight = $(window).height(); //get height of the window
+
+  $('.fullheight').css('height', wheight);
+  // $('.halfheight').css('height', wheight/2);
+
+  $(window).resize(function() {
+    var wheight = $(window).height(); //get height of the window
+    $('.fullheight').css('height', wheight);
+  }) //on resize
+
+
+// Animated Scrolling from CSS Tricks
+  // $('a[href*=#]:not([href=#])').click(function() {
+  //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+  //     var target = $(this.hash);
+  //     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+  //     if (target.length) {
+  //       $('html,body').animate({
+  //         scrollTop: target.offset().top
+  //       }, 1000);
+  //       return false;
+  //     } // target.length
+  //   } //location hostname
+  // }); //on click
+
+  //highlight navigation
+  $(window).scroll(function() {
+    var windowpos = $(window).scrollTop() + topoffset;
+    $('nav li a').removeClass('active');
+
+    if (windowpos > $('#intro').offset().top-1) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#intro"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#mission').offset().top-1) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#mission"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#season').offset().top-1) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#season"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#news').offset().top-1) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#news"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#players').offset().top-1) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#players"]').addClass('active');
+    } //windowpos
+
+    if (windowpos > $('#sponsor').offset().top-1) {
+      $('nav li a').removeClass('active');
+      $('a[href$="#sponsor"]').addClass('active');
+    } //windowpos
+
+  }); //window scroll
+
+
+
+
+  //set up ScrollMagic
+  var controller = new ScrollMagic({
+    globalSceneOptions: {
+      triggerHook: "onLeave"
+    }
+  });
+
+  //pin the navigation
+  // var pin = new ScrollScene({
+  //   triggerElement: '#nav',
+  // }).setPin('#nav').addTo(controller);
+
+
+  if(!isTouch) {
+    //program animations
+    var roomOrigin = {
+      bottom: -700,
+      opacity: 0,
+      scale: 0
+    }
+
+    var roomDest = {
+      repeat: 1,
+      yoyo: true,
+      bottom: 0,
+      opacity: 1,
+      scale: 1,
+      ease: Back.easeOut
+    }
+
+    var roomtween = TweenMax.staggerFromTo(
+      "#peace .content",
+      1, roomOrigin, roomDest);
+
+    var pin = new ScrollScene({
+      triggerElement: '#peace',
+      offset: -topoffset,
+      duration: 500
+    }).setPin('#peace')
+      .setTween(roomtween)
+      .addTo(controller)
+
+
+    var roomtween = TweenMax.staggerFromTo(
+      "#spring .content",
+      1, roomOrigin, roomDest);
+
+    var pin = new ScrollScene({
+      triggerElement: '#spring',
+      offset: -topoffset,
+      duration: 500
+    }).setPin('#spring')
+      .setTween(roomtween)
+      .addTo(controller)
+
+    var roomtween = TweenMax.staggerFromTo(
+      "#dream .content",
+      1, roomOrigin, roomDest);
+
+    var pin = new ScrollScene({
+      triggerElement: '#dream',
+      offset: -topoffset,
+      duration: 500
+    }).setPin('#dream')
+      .setTween(roomtween)
+      .addTo(controller)
+
+  } //not a touch device
+
+
+  //atractions animation
+  var attractionstween = TweenMax.staggerFromTo('#donate article', 1, { opacity: 0, scale: 0 },
+      {delay: 1, opacity: 1, scale: 1,
+        ease: Back.easeOut});
+
+
+  var scene = new ScrollScene({
+    triggerElement: '#donate',
+    offset: -topoffset
+  }).setTween(attractionstween)
+    .addTo(controller);
+}); //on load
+
+// BOOTSTRAP SCRIPTS ============================
+$(function() {
+
+  // Activate Scrollspy
+  $('body').scrollspy({
+    target: 'header .navbar-default'
+  });
+
+  // Add an inbody class to nav when scrollspy event fires
+  $('.navbar-default').on('activate.bs.scrollspy', function() {
+    var hash = $(this).find('li.active a').attr('href');
+    if(hash !== '#featured') {
+      $('header nav').addClass('inbody');
+    } else {
+      $('header nav').removeClass('inbody');
+    }
+  });
+
+
+  $('.carousel').carousel({
+    interval: false
+  });
+});
+
+
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"jquery":2}],2:[function(require,module,exports){
 /*!

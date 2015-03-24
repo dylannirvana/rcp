@@ -1,0 +1,28 @@
+// Overall styles not particular to a section
+body {
+	font-family: $mainFont;
+	font: $mainFont;
+	background: $backgroundColor;
+	color: $typeDefault;
+	position: relative; 
+
+	#{headings()} {
+		font-family: $headFont;
+		color: $headColor;
+		line-height: 1.4em;
+	}
+
+	strong {
+		font-weight: $bold;
+	}
+	p {
+		padding-bottom: 10px;
+	}
+
+	
+}
+
+
+
+
+

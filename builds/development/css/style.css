@@ -59,77 +59,78 @@ END TABLE OF CONTENTS
 /*--------------------------------------------------------------
 1.1 Compass
 --------------------------------------------------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
 /*--------------------------------------------------------------
 2.1 Susy, Breakpoint
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 3.1 Variables
 --------------------------------------------------------------*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /*--------------------------------------------------------------
 3.2 Mixins
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 3.3 Base
 --------------------------------------------------------------*/
+body {
+  font-family: 200 1rem/1.6rem "kepler-std-extended-display", Times, serif;
+  font: 200 1rem/1.6rem "kepler-std-extended-display", Times, serif;
+  background: #FFFFFF;
+  color: #313131;
+  position: relative;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: 200 1.5rem/1.5rem brandon-grotesque, Helvetica, sans-serif;
+  color: #313131;
+  line-height: 1.4em;
+}
+body strong {
+  font-weight: 600;
+}
+body p {
+  padding-bottom: 10px;
+}
+
 /*--------------------------------------------------------------
 3.4 Layout
 --------------------------------------------------------------*/
+.scene {
+  position: relative;
+  padding-top: 20px;
+}
+.scene article {
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.scene article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 1200px) {
+  .scene {
+    padding: 40px 0;
+  }
+}
+@media (min-width: 960px) {
+  .scene article {
+    max-width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .scene article:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
 /*--------------------------------------------------------------
 4.1 Brand
 --------------------------------------------------------------*/
@@ -470,8 +471,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url(../../../fonts/bootstrap/glyphicons-halflings-regular.eot);
+  src: url(../../../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(../../../fonts/bootstrap/glyphicons-halflings-regular.woff2) format("woff2"), url(../../../fonts/bootstrap/glyphicons-halflings-regular.woff) format("woff"), url(../../../fonts/bootstrap/glyphicons-halflings-regular.ttf) format("truetype"), url(../../../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
 }
 .glyphicon {
   position: relative;
@@ -1386,11 +1387,27 @@ th {
   content: "\e227";
 }
 
+.glyphicon-btc:before {
+  content: "\e227";
+}
+
+.glyphicon-xbt:before {
+  content: "\e227";
+}
+
 .glyphicon-yen:before {
   content: "\00a5";
 }
 
+.glyphicon-jpy:before {
+  content: "\00a5";
+}
+
 .glyphicon-ruble:before {
+  content: "\20bd";
+}
+
+.glyphicon-rub:before {
   content: "\20bd";
 }
 
@@ -1630,6 +1647,10 @@ hr {
   clip: auto;
 }
 
+[role="button"] {
+  cursor: pointer;
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: inherit;
@@ -1767,7 +1788,7 @@ mark,
   text-transform: lowercase;
 }
 
-.text-uppercase {
+.text-uppercase, .initialism {
   text-transform: uppercase;
 }
 
@@ -1945,7 +1966,6 @@ abbr[data-original-title] {
 
 .initialism {
   font-size: 90%;
-  text-transform: uppercase;
 }
 
 blockquote {
@@ -3260,7 +3280,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #313131;
 }
 
 .form-control {
@@ -3270,7 +3290,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #313131;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -3298,9 +3318,11 @@ output {
   color: #999;
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  cursor: not-allowed;
   background-color: #eeeeee;
   opacity: 1;
+}
+.form-control[disabled], fieldset[disabled] .form-control {
+  cursor: not-allowed;
 }
 
 textarea.form-control {
@@ -3395,6 +3417,7 @@ input[type="search"] {
 
 .radio-inline,
 .checkbox-inline {
+  position: relative;
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -3432,6 +3455,7 @@ input[type="checkbox"] {
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
+  min-height: 34px;
 }
 .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control,
 .input-group-lg > .form-control-static.input-group-addon,
@@ -3489,6 +3513,7 @@ select[multiple].input-sm,
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
+  min-height: 32px;
 }
 
 .input-lg, .input-group-lg > .form-control,
@@ -3538,6 +3563,7 @@ select[multiple].input-lg,
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
+  min-height: 38px;
 }
 
 .has-feedback {
@@ -4013,11 +4039,9 @@ input[type="button"].btn-block {
 
 .collapse {
   display: none;
-  visibility: hidden;
 }
 .collapse.in {
   display: block;
-  visibility: visible;
 }
 
 tr.collapse.in {
@@ -4046,7 +4070,7 @@ tbody.collapse.in {
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px solid;
+  border-top: 4px dashed;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
@@ -4432,7 +4456,7 @@ tbody.collapse.in {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: #313131;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #ccc;
@@ -4575,7 +4599,7 @@ tbody.collapse.in {
   border-color: #eeeeee #eeeeee #ddd;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-  color: #555555;
+  color: #313131;
   background-color: #fff;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
@@ -4658,11 +4682,9 @@ tbody.collapse.in {
 
 .tab-content > .tab-pane {
   display: none;
-  visibility: hidden;
 }
 .tab-content > .active {
   display: block;
-  visibility: visible;
 }
 
 .nav-tabs .dropdown-menu {
@@ -4729,7 +4751,6 @@ tbody.collapse.in {
   }
   .navbar-collapse.collapse {
     display: block !important;
-    visibility: visible !important;
     height: auto !important;
     padding-bottom: 0;
     overflow: visible !important;
@@ -5443,7 +5464,7 @@ a.label:hover, a.label:focus {
   position: relative;
   top: -1px;
 }
-.btn-xs .badge, .btn-group-xs > .btn .badge {
+.btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .btn .badge {
   top: 0;
   padding: 1px 5px;
 }
@@ -6307,10 +6328,12 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
   width: 100%;
   border: 0;
 }
-.embed-responsive.embed-responsive-16by9 {
+
+.embed-responsive-16by9 {
   padding-bottom: 56.25%;
 }
-.embed-responsive.embed-responsive-4by3 {
+
+.embed-responsive-4by3 {
   padding-bottom: 75%;
 }
 
@@ -6377,7 +6400,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -6422,10 +6445,12 @@ button.close {
 }
 
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
+  z-index: 1040;
   background-color: #000;
 }
 .modal-backdrop.fade {
@@ -6512,7 +6537,6 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  visibility: visible;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -7015,7 +7039,6 @@ button.close {
 
 .hidden {
   display: none !important;
-  visibility: hidden !important;
 }
 
 .affix {
