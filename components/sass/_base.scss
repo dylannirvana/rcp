@@ -1,28 +1,36 @@
 // Overall styles not particular to a section
+// BASE
+
 body {
-	font-family: $mainFont;
-	font: $mainFont;
-	background: $backgroundColor;
-	color: $typeDefault;
-	position: relative; 
+	position: relative;
 
-	#{headings()} {
+	.scene {
+		padding-top: 50px;
+		padding-bottom: 50px;
 		font-family: $headFont;
-		color: $headColor;
-		line-height: 1.4em;
-	}
+		font: $headFont;
+		background: $backgroundColor;
+		// position: relative; 
 
-	strong {
-		font-weight: $bold;
-	}
-	p {
-		padding-bottom: 10px;
-	}
+		
 
+		#{headings()} {
+			font-family: $headFont;
+			color: lighten($gray, 15);
+			text-transform: uppercase;
+			padding-bottom: 10px;
+		}
+
+		strong {
+			font-weight: $bold;
+		}
+		p {
+			padding-bottom: 10px;
+			font: $mainFont;
+		}
+
+		
+	}
+	
 	
 }
-
-
-
-
-

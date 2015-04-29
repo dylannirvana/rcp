@@ -1,0 +1,11 @@
+header {
+	nav {
+		@include clearfix;
+		//@include background-image(); //This is where to put a background when on pages other than brand
+
+	}
+
+	.navbar {
+		@include container;
+	}
+}

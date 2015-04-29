@@ -7,7 +7,7 @@ var gulp          = require('gulp'),
     uglify        = require('gulp-uglify'),
     minifyHTML    = require('gulp-minify-html'),
     concat        = require('gulp-concat'),
-    bootstrap     = require('jquery', 'bootstrap-sass'),
+    // bootstrap     = require('jquery', 'bootstrap-sass'),
     path          = require('path');
     
 
@@ -31,10 +31,9 @@ if (env==='development') {
 
 // Note: place libraries below as requirements
 jsSources = [
-  'components/scripts/jqloader.js',
+  // 'components/scripts/jqloader.js',
   'components/scripts/TweenMax.min.js',
   'components/scripts/jquery.scrollmagic.min.js',
-  'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js',
   'components/scripts/script.js'
 ];
 sassSources = [

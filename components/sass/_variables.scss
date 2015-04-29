@@ -1,5 +1,4 @@
- // Typekit does not have a @import implementation
-// so it is located in the index head
+// VARIABLES
 
 @include border-box-sizing; // from IE
 
@@ -17,12 +16,11 @@ $small: 650px;
 $medium: 960px;
 $wide: 1200px;
 
-// Color Palettes CHANGE THE COLOUR PALATE
+// Color Palettes 
 $gray	: #313131;	// standard grey
 $ltGray	: #4d4d4d;	// lighter grey
 
-// $red	: #721C1F; // carnegie hall
-$red	: $gray; // carnegie hall
+$red	: #721C1F; // carnegie hall
 $brown	: #8F6036;
 $yellow	: #D7B56C;
 $tan	: #A38D74;
@@ -37,8 +35,8 @@ $blood	: #400400;
 $pink	: #B10782; // -analogous
 $green	: #9AB114; // -triad
 
-$light	: #FFFFFF;
-$dark	: $gray; // grey
+$light	: lighten($yellow, 15);
+$dark	: darken($gray, 5); // gray
 
 
 $backgroundColor	: $light;
@@ -52,7 +50,7 @@ $navForeground		: $light;
 $navHover			: darken($yellow, 5);
 $navActive			: $ltGray;
 
-// Font variables CHANGE THE FONTS
+// Font variables
 $fontSans	: brandon-grotesque, Helvetica, sans-serif;
 $fontSerif	: 'kepler-std-extended-display', Times, serif;
 $fontScript	: 'grafolita-script', Zapf Chancery, Times, serif;
@@ -67,7 +65,7 @@ $heavy		: 800;
 $headColor	: $typeDefault;
 $fontColor	: lighten($dark, 20);
 
-$headFont	: $thin 1.5rem/1.5rem $fontSans;
+$headFont	: $thin 1.8rem/1.8rem $fontSans;
 $mainFont	: $thin 1rem/1.6rem $fontSerif;
 
 
