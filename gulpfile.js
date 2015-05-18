@@ -7,6 +7,7 @@ var gulp          = require('gulp'),
     uglify        = require('gulp-uglify'),
     minifyHTML    = require('gulp-minify-html'),
     concat        = require('gulp-concat'),
+    rename        = require('gulp-rename'),
     // bootstrap     = require('jquery', 'bootstrap-sass'),
     path          = require('path');
     
@@ -16,6 +17,8 @@ var env,
     sassSources,
     htmlSources, 
     outputDir,
+    wpDirectory,
+    wpIndex,
     sassStyle;
 
 env = 'development';
@@ -29,6 +32,10 @@ if (env==='development') {
   sassStyle = 'compressed';
 }
 
+// WordPress
+wpDirectory = 'wordpress/wp-content/themes/rcptheme/testFolder/';
+
+
 // Note: place libraries below as requirements
 jsSources = [
   // 'components/scripts/jqloader.js',
@@ -40,7 +47,7 @@ sassSources = [
   'components/sass/style.scss'
 ];
 
-htmlSources = [outputDir + '*.html'];
+htmlSources = [outputDir + '*.php'];
 // phpSources = [outputDir + '*.php']; ????
 
 gulp.task('js', function() {
@@ -50,6 +57,7 @@ gulp.task('js', function() {
     .on('error', gutil.log)
     .pipe(gulpif(env === 'production', uglify()))
     .pipe(gulp.dest(outputDir + 'js'))
+    .pipe(gulp.dest(wpDirectory + 'js'))
     .pipe(connect.reload())
 });
 
@@ -57,7 +65,7 @@ gulp.task('compass', function() {
   gulp.src(sassSources)
     .pipe(compass({
       sass: 'components/sass',
-      css: outputDir + 'css',
+      css: (outputDir + 'css', wpDirectory),
       image: outputDir + 'images',
       style: sassStyle,
       require: ['susy', 'breakpoint']
@@ -71,7 +79,7 @@ gulp.task('compass', function() {
 gulp.task('watch', function() {
   gulp.watch(jsSources, ['js']);
   gulp.watch(['components/sass/*.scss', 'components/sass/*/*.scss'], ['compass']);
-  gulp.watch('builds/development/*.html', ['html']);
+  gulp.watch('builds/development/*.php', ['php']);
 });
 
 gulp.task('connect', function() {
@@ -81,10 +89,12 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('html', function() { // simply replace html with php????
-  gulp.src('builds/development/*.html')
+gulp.task('php', function() { // simply replace html with php????
+  gulp.src('builds/development/*.php')
     .pipe(gulpif(env === 'production', minifyHTML()))
     .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
+    .pipe(rename('test-page.php'))
+    .pipe(gulp.dest(wpDirectory))
     .pipe(connect.reload())
 });
 
@@ -94,4 +104,4 @@ gulp.task('move', function() {
   .pipe(gulpif(env === 'production', gulp.dest(outputDir+'images')))
 });
 
-gulp.task('default', ['watch', 'html', 'js', 'compass', 'move', 'connect']); // replace html with php???
+gulp.task('default', ['watch', 'php', 'js', 'compass', 'move', 'connect']); // replace html with php???

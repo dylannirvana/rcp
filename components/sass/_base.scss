@@ -4,9 +4,13 @@
 body {
 	position: relative;
 
+	header {
+		
+	}
+
 	.scene {
-		padding-top: 50px;
-		padding-bottom: 50px;
+		padding-top: 70px;
+		padding-bottom: 80px;
 		font-family: $headFont;
 		font: $headFont;
 		background: $backgroundColor;

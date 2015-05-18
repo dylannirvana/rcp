@@ -11,7 +11,7 @@
 $(function() {
 
   "use strict";
-
+// Variables
   var topoffset = 50; //variable for menu height
   var slideqty = $('#featured .item').length;
   var wheight = $(window).height(); //get the height of the window
@@ -19,22 +19,41 @@ $(function() {
 
   $('#featured .item').eq(randSlide).addClass('active');
 
-
   $('.fullheight').css('height', wheight); //set to window height  
-
-
-  //replace IMG inside carousels with a background image
-  $('#featured .item img').each(function() {
-    var imgSrc = $(this).attr('src');
-    $(this).parent().css({'background-image': 'url('+imgSrc+')'});
-    $(this).remove();
-  });
+  $('.halfheight').css('height', wheight/2);
 
   //adjust height of .fullheight elements on window resize
   $(window).resize(function() {
     wheight = $(window).height(); //get the height of the window
     $('.fullheight').css('height', wheight); //set to window height  
   });
+
+  //replace IMG inside CAROUSEL with a background image
+  $('#featured .item img').each(function() {
+    var imgSrc = $(this).attr('src');
+    $(this).parent().css({'background-image': 'url('+imgSrc+')'});
+    $(this).remove();
+  });
+
+//replace IMG inside PHOTO GRID with a background image
+  $('#players .players img').each(function() {
+    var imgSrc = $(this).attr('src');
+    $(this).parent().css({'background-image': 'url('+imgSrc+')' });
+    $(this).remove();
+  });
+
+  // $('.players').addClass('halfheight');
+
+  // $('#players .content p a').hover(function() {
+  //   $('.content p').slideUp('slow')
+  // });
+
+
+// $( "#clickme" ).click(function() {
+//   $( "#book" ).slideUp( "slow", function() {
+    
+//   });
+// });
 
 
 

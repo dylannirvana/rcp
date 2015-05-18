@@ -1,0 +1,95 @@
+#players {
+  padding: 0;
+  @include clearfix;
+  background-color: $light;
+
+// Breakpoint
+  .players {
+    position: relative;
+    @include container(100%);
+    @include smBackImage;
+    @include breakpoint($narrow) {
+      @include span(6 of 12 0);
+    } 
+    @include breakpoint($small) {
+      @include span(4 of 12 0);
+    } 
+    @include breakpoint($medium) {
+      @include span(3 of 12 0);
+    } 
+
+// The issue with the text is to either get it to run a modal, or animate over the image.
+    .content { 
+      position: absolute;
+      // opacity: 1; 
+      bottom: 0;
+      background: rgba($dark, .7);
+      padding: 30px;
+      color: $light;
+      font-weight: $thin;
+      line-height: 130%;
+      max-height: 100%;
+      width: 100%;
+      overflow: auto;
+
+      h2 {
+        color: $light;
+        line-height: 1em;
+        font-size: .6em;
+      }
+
+      p {
+        position: relative;
+        padding: 5px 0;
+        display: none;
+        // transition: all 1s ease;
+
+      }
+
+      &:hover {
+        p {
+          display: block;
+        }
+      }
+    } // .content
+
+  } // .players
+
+// The issue here is how do I get the right images from WP? Can I put them in the CSS? Or only in the HTML?
+// Also, there is a naming issue with the ids vs classes
+  // #annHobson {
+  //   @include backImage('../images/players/annHobson.jpg');
+  // } 
+  // #alisonBuchanan {
+  //   @include backImage('../images/players/alisonBuchanan.jpg');
+  // }
+  // #davidBerry {
+  //   @include backImage('../images/players/davidBerry.jpg');
+  // }
+  // #georgeTaylor {
+  //   @include backImage('../images/players/georgeTaylor.jpg');
+  // }
+  // #judyDines {
+  //   @include backImage('../images/players/judyDines.jpg');
+  // }
+  // #kellyTompkins {
+  //   @include backImage('../images/players/kellyTompkins.jpg');
+  // }
+  // #kennethLaw {
+  //   @include backImage('../images/players/kennethLaw.jpg');
+  // }
+  // #terrenceWilson {
+  //   @include backImage('../images/players/terrenceWilson.jpg');
+  // }
+   
+
+
+} //events
+
+
+
+
+
+
+
+
