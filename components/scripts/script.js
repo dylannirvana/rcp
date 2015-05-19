@@ -56,6 +56,32 @@ $(function() {
 // });
 
 
+// Sponsor animation
+  
+  //set up ScrollMagic
+  var controller = new ScrollMagic({
+    globalSceneOptions: {
+      triggerHook: "onLeave"
+    }
+  });
+
+  
+
+
+  //atractions animation
+  var attractionstween = TweenMax.staggerFromTo('#sponsor article', 1, { opacity: 0, scale: 0 },
+      {delay: 1, opacity: 1, scale: 1,
+        ease: Back.easeOut});
+
+
+  var scene = new ScrollScene({
+    triggerElement: '#sponsor',
+    offset: -topoffset
+  }).setTween(attractionstween)
+    .addTo(controller);
+ //on load
+
+
 
   //Activate Scrollspy
   $('body').scrollspy({

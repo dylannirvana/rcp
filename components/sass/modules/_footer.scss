@@ -1,0 +1,43 @@
+#footer {
+	@include container(100%);
+	background: $dark;
+	padding-top: 40px;
+	padding-bottom: 2px;
+	// height: 12em;
+	
+
+	.content {
+		text-align: center;
+		ul {
+			list-style: none;
+			li {
+				display: inline-block;
+				padding: 10px;
+				a {
+					text-decoration: none;
+					color: lighten($gray, 10);
+					&:hover {
+						color: lighten($yellow, 5);
+					}
+				}
+
+				img {
+					width: 30px;
+					@include border-radius(50%);
+				} //img
+			} //li 
+		} //ul
+		.veryBottom {
+			
+		}	
+		#copyright {
+			margin-top: 40px;
+			font-size: 12px;
+			padding-bottom: none;
+			text-align: right;
+		}
+		
+	} // article content
+
+	
+} //footer

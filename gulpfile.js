@@ -65,7 +65,7 @@ gulp.task('compass', function() {
   gulp.src(sassSources)
     .pipe(compass({
       sass: 'components/sass',
-      css: (outputDir + 'css', wpDirectory),
+      css: (outputDir + 'css'),
       image: outputDir + 'images',
       style: sassStyle,
       require: ['susy', 'breakpoint']

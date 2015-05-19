@@ -1,18 +1,42 @@
 #players {
   padding: 0;
   @include clearfix;
-  background-color: $light;
+  background-color: $gray;
+
+  header {
+    background-color: $light;
+    padding: 40px;
+  }
 
 // Breakpoint
   .players {
     position: relative;
     @include container(100%);
     @include smBackImage;
+
+    // GRAYSCALE control on images
+    -webkit-filter: grayscale(9);
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%);
+    filter: url(#greyscale);
+    filter: gray;
+
+    &:hover {
+      -webkit-filter: grayscale(.6);
+      -webkit-filter: grayscale(60%);
+      filter: grayscale(60%);
+      filter: url(#greyscale);
+      filter: gray;
+    }
+
+
     @include breakpoint($narrow) {
-      @include span(6 of 12 0);
+      @include span(6 of 12 0); // or go to 4, 3 and 2 for smaller pictures
+      // font-size: 80%;
     } 
     @include breakpoint($small) {
       @include span(4 of 12 0);
+      // font-size: 100%;
     } 
     @include breakpoint($medium) {
       @include span(3 of 12 0);

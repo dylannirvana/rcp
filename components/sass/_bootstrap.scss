@@ -82,7 +82,9 @@ header {
 
 /**  nav inbody **/
   .inbody {
-    background: rgba(104,73,49,.9);
+    // background: rgba(104,73,49,.9);
+    background: $gray;
+    @include opacity(.5);
 
     // .navbar-brand {
     //   background-size: 43px;
@@ -157,16 +159,16 @@ header {
 
 // Grayscale and "duotone" of images
 #featured .carousel-inner {
-  -webkit-filter: grayscale(8);
-  -webkit-filter: grayscale(80%);
-  filter: grayscale(80%);
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
   filter: url(#greyscale);
   filter: gray;
 
   &:hover {
-    -webkit-filter: grayscale(.5);
-    -webkit-filter: grayscale(50%);
-    filter: grayscale(50%);
+    -webkit-filter: grayscale(.6);
+    -webkit-filter: grayscale(60%);
+    filter: grayscale(60%);
     filter: url(#greyscale);
     filter: gray;
   }

@@ -256,11 +256,6 @@
       <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
 
 
-
-
-
-
-
     </article>
   </section>
 
@@ -270,7 +265,7 @@
 
 <!-- Read up about cool footers -->
 <footer>
-  <!- Need FOOTER -->
+  <p>lkjlkj</p>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

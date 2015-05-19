@@ -12,7 +12,9 @@
 
 <body> 
 
-<!-- Table of Contents TEST
+<!- Please REPLACE the CDN's with npm -->
+
+<!-- Table of Contents
     1. BRAND 
       1.1 Navigation
       1.2 Carousel
@@ -251,16 +253,9 @@
 
   <!- 6. SPONSOR WP Artfully donation page -->
   <section class="scene" id="sponsor">
-    <article class="content container">
+    <article class="content ">
       <h1>Sponsorship</h1>
       <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-
-
-
-
-
-
-
     </article>
   </section>
 
@@ -269,8 +264,8 @@
 </div><!-- main -->
 
 <!-- Read up about cool footers -->
-<footer>
-  <!- Need FOOTER -->
+<footer class="scene">
+  <p>hhh</p>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

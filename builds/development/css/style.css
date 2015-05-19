@@ -157,7 +157,9 @@ header .navbar-default .navbar-toggle .icon-bar {
   background-color: white;
 }
 header .inbody {
-  background: rgba(104, 73, 49, 0.9);
+  background: #313131;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
 }
 header .navbar.inbody {
   padding-top: 0;
@@ -206,16 +208,16 @@ header .navbar.inbody .navbar-nav {
 }
 
 #featured .carousel-inner {
-  -webkit-filter: grayscale(8);
-  -webkit-filter: grayscale(80%);
-  filter: grayscale(80%);
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
   filter: url(#greyscale);
   filter: gray;
 }
 #featured .carousel-inner:hover {
-  -webkit-filter: grayscale(0.5);
-  -webkit-filter: grayscale(50%);
-  filter: grayscale(50%);
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
   filter: url(#greyscale);
   filter: gray;
 }
@@ -332,6 +334,10 @@ body .scene p {
 /*--------------------------------------------------------------
 4.2 Mission
 --------------------------------------------------------------*/
+#mission {
+  background: #e2c994;
+}
+
 /*--------------------------------------------------------------
 4.3 Season
 --------------------------------------------------------------*/
@@ -340,7 +346,7 @@ body .scene p {
 --------------------------------------------------------------*/
 #players {
   padding: 0;
-  background-color: #f2e7d0;
+  background-color: #313131;
 }
 #players:before, #players:after {
   content: '';
@@ -348,6 +354,10 @@ body .scene p {
 }
 #players:after {
   clear: both;
+}
+#players header {
+  background-color: #f2e7d0;
+  padding: 40px;
 }
 #players .players {
   position: relative;
@@ -360,11 +370,23 @@ body .scene p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  filter: url(#greyscale);
+  filter: gray;
 }
 #players .players:after {
   content: " ";
   display: block;
   clear: both;
+}
+#players .players:hover {
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  filter: url(#greyscale);
+  filter: gray;
 }
 @media (min-width: 400px) {
   #players .players {
@@ -428,9 +450,136 @@ body .scene p {
 /*--------------------------------------------------------------
 4.7 Sponsor 
 --------------------------------------------------------------*/
+#sponsor {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("/images/donate/donate.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-filter: grayscale(9);
+  -webkit-filter: grayscale(90%);
+  filter: grayscale(90%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#sponsor:before, #sponsor:after {
+  content: '';
+  display: table;
+}
+#sponsor:after {
+  clear: both;
+}
+#sponsor:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#sponsor:hover {
+  -webkit-filter: grayscale(0.6);
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+#sponsor article {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  background: rgba(242, 231, 208, 0.8);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#sponsor article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 960px) {
+  #sponsor article {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #sponsor article:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+#sponsor button {
+  float: right;
+  color: #f2e7d0;
+  border: none;
+  background-color: #000D42;
+  font-size: 1em;
+  padding: 12px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
 /*--------------------------------------------------------------
 5.1 Main Footer
 --------------------------------------------------------------*/
+#footer {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #242424;
+  padding-top: 40px;
+  padding-bottom: 2px;
+}
+#footer:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#footer .content {
+  text-align: center;
+}
+#footer .content ul {
+  list-style: none;
+}
+#footer .content ul li {
+  display: inline-block;
+  padding: 10px;
+}
+#footer .content ul li a {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+#footer .content ul li a:hover {
+  color: #dcbf80;
+}
+#footer .content ul li img {
+  width: 30px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+#footer .content #copyright {
+  margin-top: 40px;
+  font-size: 12px;
+  padding-bottom: none;
+  text-align: right;
+}
+
 /*--------------------------------------------------------------
 6.1 Main nav
 --------------------------------------------------------------*/
