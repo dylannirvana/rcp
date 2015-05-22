@@ -2,7 +2,7 @@
 	@include clearfix;
 	@include container(100%);
 	padding-top: 60;
-	@include backImage('/images/donate/donate.jpg');
+	@include backImage('images/donate/donate.jpg');
 
 	@include display-flex();
 	@include align-items(center);

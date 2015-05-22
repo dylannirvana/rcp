@@ -33,7 +33,7 @@ if (env==='development') {
 }
 
 // WordPress
-wpDirectory = 'wordpress/wp-content/themes/rcptheme/testFolder/';
+wpDirectory = 'wordpress/wp-content/themes/rcptheme/';
 
 
 // Note: place libraries below as requirements
@@ -65,7 +65,7 @@ gulp.task('compass', function() {
   gulp.src(sassSources)
     .pipe(compass({
       sass: 'components/sass',
-      css: (outputDir + 'css'),
+      css: (outputDir + 'css'), // both directories?
       image: outputDir + 'images',
       style: sassStyle,
       require: ['susy', 'breakpoint']
@@ -93,7 +93,7 @@ gulp.task('php', function() { // simply replace html with php????
   gulp.src('builds/development/*.php')
     .pipe(gulpif(env === 'production', minifyHTML()))
     .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
-    .pipe(rename('test-page.php'))
+    .pipe(rename('front-page.php'))
     .pipe(gulp.dest(wpDirectory))
     .pipe(connect.reload())
 });
@@ -102,6 +102,7 @@ gulp.task('php', function() { // simply replace html with php????
 gulp.task('move', function() {
   gulp.src('builds/development/images/**/*.*')
   .pipe(gulpif(env === 'production', gulp.dest(outputDir+'images')))
+  .pipe(gulpif(env === 'development', gulp.dest(wpDirectory+'images')))
 });
 
 gulp.task('default', ['watch', 'php', 'js', 'compass', 'move', 'connect']); // replace html with php???

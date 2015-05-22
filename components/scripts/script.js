@@ -10,7 +10,7 @@
 
 $(function() {
 
-  "use strict";
+  // "use strict";
 // Variables
   var topoffset = 50; //variable for menu height
   var slideqty = $('#featured .item').length;
@@ -68,7 +68,7 @@ $(function() {
   
 
 
-  //atractions animation
+  // Sponsor animation
   var attractionstween = TweenMax.staggerFromTo('#sponsor article', 1, { opacity: 0, scale: 0 },
       {delay: 1, opacity: 1, scale: 1,
         ease: Back.easeOut});
@@ -83,7 +83,7 @@ $(function() {
 
 
 
-  //Activate Scrollspy
+  // Activate Scrollspy
   $('body').scrollspy({
     target: 'header .navbar',
     offset: topoffset
@@ -140,3 +140,4 @@ $(function() {
   });
 
 });
+
