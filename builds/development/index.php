@@ -1,5 +1,5 @@
 
-<?php get_header() ?>
+<?php get_header('special') ?>
 
 <!-- Table of Contents
     1. BRAND 
@@ -11,33 +11,6 @@
     5. EDUCATION
     6. SPONSOR -->
 
-<header>
-
-<!-- 1. BRAND  -->
-<!-- 1.1 Navigation  -->
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-          <a class="navbar-brand" href="#featured"><h1> Ritz Chamber <span class="subhead"><img src="<?php bloginfo('template_directory'); ?>/images/icons/rhombus.png">Players<img src="<?php bloginfo('template_directory'); ?>/images/icons/rhombus.png"> </span></h1></a>
-      </div><!-- navbar-header -->
-      <div class="collapse navbar-collapse" id="collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#featured">Home</a></li>
-          <li><a href="#mission">Mission</a></li>
-          <li><a href="#season">Season</a></li>
-          <li><a href="#players">Players</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#sponsor">Sponsor</a></li>
-        </ul>        
-      </div><!-- collapse navbar-collapse -->
-    </div><!-- container -->
-  </nav>
 
 <!-- 1.2 Carousel  -->
   <div class="carousel fade" data-ride="carousel" id="featured">
@@ -60,24 +33,94 @@
 
 <!-- 2. MISSION   -->
   <section class="scene" id="mission">
-
     <article class="content container">
+
       <h1>Our Mission</h1>
-      <div class="row"> 
-        <p class="col-md-5 col-md-offset-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-        <p class="col-md-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div> <!-- END row -->
+      <!-- <div> 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>  -->
+
+    <!-- WORDPRESS QUERY  ========================== -->
+      <?php 
+        $query = new WP_query( 'pagename=mission');
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            echo "<div>";
+            the_content();
+            echo "</div>";
+          }
+        }
+        wp_reset_postdata();
+       ?>
+      <!-- END WORDPRESS -->
+
     </article>
-    
   </section>
 
  <!-- 3. SEASON -->
  <!- WP ARTFULLY CALENDAR ->
   <section class="scene" id="season">
-    <article class="content container">
-      <h1>Performance Season</h1>
-      <p>WordPress Artfully calendar goes here</p>
-    </article>
+  <!-- <h1>The Ritz Chamber Players Perform</h1> -->
+    <div class=" content container">
+      <!-- <article class="blogmain">  -->
+        <!-- This is a nested loop -->
+
+
+        <?php 
+          $query = new WP_query( 'cat=5' );
+          if ( $query->have_posts()) {
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              echo '<div>';
+              // echo '<div class=" content">';
+              echo '<article class="blogmain">';
+              echo ( do_shortcode( get_post_meta( $post->ID , 'art' , true ) ) ); 
+              echo "<p>";
+              the_content(); 
+              echo "</p>";            
+              echo "</article>";
+              // echo "</div>";
+              echo "</div>";
+            }
+          }
+          wp_reset_postdata();
+
+
+          // $query = new WP_query('cat=5');
+          // if ( $query->have_posts() ) {
+          //   while ( $query->have_posts() ) {
+          //     $query->the_post();
+          //     the_content();
+          //   }
+          // }
+          // wp_reset_postdata();
+
+
+
+
+         ?>
+      <!-- </article>  -->
+      <aside class="blogside"> 
+        <?php 
+        $query = new WP_query( 'pagename=this-season');
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            echo "<div>";
+            the_post_thumbnail();
+            echo "<div>";
+            the_title();
+            the_content();
+            echo "</div>";
+            echo "</div>";
+          }
+        }
+        wp_reset_postdata();
+       ?>
+      </aside> 
+    </div>
   </section>
 
   <!-- 4. PLAYERS -->
@@ -87,12 +130,23 @@
     <header >
     <!-- <div class="content container">  -->
       <h1>Meet the Players</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque explicabo numquam cupiditate, ab cum eos, placeat similique iusto nisi possimus vitae ad, earum sit tempora eligendi, at nemo amet ea!</p>
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque explicabo numquam cupiditate, ab cum eos, placeat similique iusto nisi possimus vitae ad, earum sit tempora eligendi, at nemo amet ea!</p> -->
       
+      <!-- WORDPRESS QUERY ========================== -->
+      <?php 
+        $query = new WP_query( 'pagename=players');
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            echo "<div>";
+            the_content();
+            echo "</div>";
+          }
+        }
+        wp_reset_postdata();
+       ?>
+      <!-- END WORDPRESS -->
     </header>
-
-
-
 
      <!--  <article class="players halfheight" id="annHobson">
         <div class="content">
@@ -102,151 +156,117 @@
       </article> -->
 
 
+      
+ 
+          <!-- WORDPRESS QUERY  ========================== -->
+       <?php 
+          $query = new WP_query( 'category_name=player' );
+          if ( $query->have_posts() ) {
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $more = 0;
+              echo "<article class='players halfheight'>"; 
+              the_post_thumbnail();
+              echo "<div class='content'>";
+              echo "<h2>";
+              echo get_the_title();
+              echo "</h2>";
+              echo "<p>";
+              the_content();             
+              echo "</p>";
+              echo "</div>";
+              echo "</article>";
+            }
+          }
+          wp_reset_postdata();
+         ?>
 
+      <!-- END WORDPRESS -->
 
-      <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/annHobson.jpg">
-        <div class="content">
-          <h2>Ann Hobson guitar</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
- <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/alisonBuchanan.jpg">
-        <div class="content">
-          <h2>Ann Hobson </h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
-       <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/davidBerry.jpg">
-        <div class="content">
-          <h2>David Berry</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
- <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/georgeTaylor.jpg">
-        <div class="content">
-          <h2>George Taylor</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
- <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/judyDines.jpg">
-        <div class="content">
-          <h2>Judy Dines</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
- <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/kellyTompkins.jpg">
-        <div class="content">
-          <h2>Kelly Tompkins</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
- <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/kennethLaw.jpg">
-        <div class="content">
-          <h2>Kenneth Law</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-
- <article class="players halfheight">
-        <img src="<?php bloginfo('template_directory'); ?>/images/players/terrenceWilson.jpg">
-        <div class="content">
-          <h2>Terrence Wilson</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
       </article>
 
 
 
 
+</section> <!-- END Players -->
+
+<!-- 5. News / Blog SECTION ========================================================= -->
+
+  <section class="scene news" id="news"> <!-- SCENE -->
+    <header>   
+      <h1>News</h1>
+    </header>
+
+    <div class="content container"> <!-- CONTENT CONTAINER -->
+      
+      <article class="blogmain"> <!-- BLOG MAIN -->
+        <!-- THE QUERY -->
+        <?php 
+          $query = new WP_query( 'cat=-2,-5' );
+          if ( $query->have_posts()) {
+            while ( $query->have_posts() ) {
+              $query->the_post();
+          query_posts('showposts=2');
+              echo "<div class='left'>";
+              echo "<h2>";
+              echo get_the_title();
+              echo "</h2>";
+              echo "<p>";
+              the_content();             
+              echo "</p>";
+              echo "</div>";
+            }
+          }
+          wp_reset_postdata();
+         ?>
+
+      </article> <!-- END BLOG MAIN -->
 
 
+      <aside class="blogside"> <!-- THE SIDEBAR -->
+
+        <?php get_sidebar( 'special' ); ?>
+
+      </aside> <!-- END sidebar class -->
+
+    </div> <!-- END content container -->
+
+  </section> <!-- END News / Blog Section -->
 
 
-
-
-
-     <!--  <article class="players halfheight" id="alisonBuchanan">
-        <div class="content">
-          <h2>Alison Buchanan fiddle</h2>
-          <p> When you entrust us to handle your wedding, or other event, you’re putting your faith in our professional reputation – and that’s not a responsibility we take lightly. </p>
-        </div>
-      </article>
-       <article class="players halfheight" id="davidBerry">
-        <div class="content">
-          <h2>David Berry oboe</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-      <article class="players halfheight" id="georgeTaylor">
-        <div class="content">
-          <h2>George Taylor jewsharp</h2>
-          <p> When you entrust us to handle your wedding, or other event, you’re putting your faith in our professional reputation – and that’s not a responsibility we take lightly. </p>
-        </div>
-      </article>
-      <article class="players halfheight" id="judyDines">
-        <div class="content">
-          <h2>Judy Dine tin can</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-      <article class="players halfheight" id="kellyTompkins">
-        <div class="content">
-          <h2>Kelly Tompkins spatula</h2>
-          <p> When you entrust us to handle your wedding, or other event, you’re putting your faith in our professional reputation – and that’s not a responsibility we take lightly. </p>
-        </div>
-      </article>
-       <article class="players halfheight" id="kennethLaw">
-        <div class="content">
-          <h2>Kenneth Law piano</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article>
-      <article class="players halfheight" id="terrenceWilson">
-        <div class="content">
-          <h2>Terrence Wilson clarinet</h2>
-          <p> When you entrust us to handle your wedding, or other event, you’re putting your faith in our professional reputation – and that’s not a responsibility we take lightly. </p>
-        </div>
-      </article> -->
-
-
-  <!-- </div> -->
-
-</section>
-
-
-  <!-- 5. EDUCATION assimilate into other section?? -->
-  <section class="scene" id="education">
-    <article class="content container">
-      <h1>Music and the Community</h1>
-      <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-
-
-
-
-
-
-    </article>
-  </section>
-<!-- </div> --> <!-- END container -->
 
   <!- 6. SPONSOR WP Artfully donation page -->
   <section class="scene" id="sponsor">
     <article class="content ">
       <h1>Sponsorship</h1>
-      <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
+      <!-- <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p> -->
+    
+  
+
+    <!-- WORDPRESS QUERY ========================== -->
+      <?php 
+        $query = new WP_query( 'pagename=sponsor');
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            echo "<div>";
+            the_content();
+            echo "</div>";
+          }
+        }
+        wp_reset_postdata();
+       ?>
+        <div>
+         <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="THMKB8Z6JM6L4">
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+      </div>
+      <!-- END WORDPRESS -->
+
+
     </article>
   </section>
 

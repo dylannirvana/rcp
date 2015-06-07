@@ -65,14 +65,15 @@ gulp.task('compass', function() {
   gulp.src(sassSources)
     .pipe(compass({
       sass: 'components/sass',
-      css: (outputDir + 'css'), // both directories?
+      css: (outputDir + 'css', wpDirectory),
+      // css: (wpDirectory + 'css'),
       image: outputDir + 'images',
       style: sassStyle,
       require: ['susy', 'breakpoint']
     })
+    // .pipe(gulp.dest(wpDirectory))
     // .pipe(concat('style.css')) // I added this line. Let's see if it works
     .on('error', gutil.log))
-//    .pipe(gulp.dest( outputDir + 'css'))
     .pipe(connect.reload())
 });
 
@@ -97,6 +98,13 @@ gulp.task('php', function() { // simply replace html with php????
     .pipe(gulp.dest(wpDirectory))
     .pipe(connect.reload())
 });
+
+// Copy css to wpDirectory
+// gulp.task('wpcss', function() { // This is the function to duplicate the css to wpDirectory
+//   gulp.src(outputDir+'css/*.css')
+//   .pipe(gulp.dest(wpDirectory))
+//   .pipe(connect.reload())
+// });
 
 // Copy images to production
 gulp.task('move', function() {

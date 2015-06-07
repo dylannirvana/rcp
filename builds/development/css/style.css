@@ -25,7 +25,7 @@ and Blueprint http://www.blueprintcss.org/
 ----------------------------------------------------------------
 
 ------------------------------------------------
-Gulp Styles
+Gulp Styles TEST #4
 ------------------------------------------------
 
 1.0 Compass imports
@@ -358,6 +358,15 @@ body .scene p {
 --------------------------------------------------------------*/
 #mission {
   background: #e2c994;
+}
+#mission .content h1, #mission .content h2, #mission .content h3, #mission .content h4, #mission .content h5, #mission .content h6 {
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  color: #575757;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+#mission .content p {
+  padding: 40px, 60px;
 }
 
 /*--------------------------------------------------------------

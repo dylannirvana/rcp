@@ -15,6 +15,10 @@
 	filter: url(#greyscale);
 	filter: gray;
 
+	  form#paypal {
+		text-align: right;
+		}
+
 	&:hover {
 	  -webkit-filter: grayscale(.6);
 	  -webkit-filter: grayscale(60%);
@@ -45,13 +49,5 @@
 		padding: 12px;
 		@include border-radius(0px);
 	
-	
-
-
-
-
-
-
-
 	}
 }

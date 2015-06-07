@@ -26,8 +26,24 @@
         </ul>
       </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis fuga officia culpa, ducimus laborum vitae facere. Eos temporibus, quisquam beatae laboriosam repellendus quasi hic quibusdam quo esse, iusto labore quidem.</p>
-      
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis fuga officia culpa, ducimus laborum vitae facere. Eos temporibus, quisquam beatae laboriosam repellendus quasi hic quibusdam quo esse, iusto labore quidem.</p> -->
+     
+
+      <!-- WORDPRESS QUERY ========================== -->
+      <?php 
+        $query = new WP_query( 'pagename=footer');
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            echo "<div>";
+            the_content();
+            echo "</div>";
+          }
+        }
+        wp_reset_postdata();
+       ?>
+      <!-- END WORDPRESS -->
+
 
       <div class="veryBottom">
           <ul id="copyright">

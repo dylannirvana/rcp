@@ -1,4 +1,18 @@
 #mission {
 	background: lighten($yellow, 10);
 
+	.content {
+
+		padding-left: 10%;
+		padding-right: 10%;
+		
+		#{headings()} {
+			font-family: $headFont;
+			color: lighten($gray, 15);
+			text-transform: uppercase;
+			padding-bottom: 10px;
+		}
+		
+	}
+
 }

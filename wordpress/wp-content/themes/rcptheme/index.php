@@ -8,14 +8,14 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package rcpTheme
+ * @package rcptheme
  */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+THIS IS INDEX.PHP 
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>

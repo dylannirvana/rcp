@@ -25,7 +25,7 @@ and Blueprint http://www.blueprintcss.org/
 ----------------------------------------------------------------
 
 ------------------------------------------------
-Gulp Styles
+Gulp Styles TEST #5
 ------------------------------------------------
 
 1.0 Compass imports
@@ -257,6 +257,7 @@ header .navbar.inbody .navbar-nav {
 --------------------------------------------------------------*/
 body {
   position: relative;
+  background: #f2e7d0;
 }
 body .scene {
   padding-top: 70px;
@@ -359,10 +360,102 @@ body .scene p {
 #mission {
   background: #e2c994;
 }
+#mission .content {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+#mission .content h1, #mission .content h2, #mission .content h3, #mission .content h4, #mission .content h5, #mission .content h6 {
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  color: #575757;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
 
 /*--------------------------------------------------------------
 4.3 Season
 --------------------------------------------------------------*/
+#season {
+  background-color: #edddbc;
+}
+#season header {
+  padding-bottom: 20px;
+}
+#season .content {
+  margin-top: 12px;
+}
+#season .content h1, #season .content h2, #season .content h3, #season .content h4, #season .content h5, #season .content h6 {
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  color: #575757;
+  font-size: .8em;
+  padding-bottom: 6px;
+  padding-top: 8px;
+}
+#season .content a {
+  font-size: .7em;
+}
+#season .content .entry-meta {
+  font-size: .7em;
+}
+#season .content .blogmain {
+  background-color: #f2e7d0;
+}
+#season .content .blogmain h1.event-name {
+  font-size: 1em;
+  margin-top: 36px;
+}
+#season .content .blogmain h2.event-subtitle {
+  font-size: .6em;
+}
+#season .content .blogmain h3.event-producer {
+  font-size: .4em;
+}
+#season .content .blogmain a.performance-datetime {
+  color: #721C1F;
+}
+#season .content .blogmain div a {
+  font-size: .7em;
+  color: #313131;
+}
+#season .content .blogmain p {
+  font-size: .8em;
+}
+#season .content .blogside {
+  margin-left: 4px;
+}
+#season .content .blogside h1, #season .content .blogside h2, #season .content .blogside h3, #season .content .blogside h4, #season .content .blogside h5, #season .content .blogside h6 {
+  padding-bottom: 4px;
+  font-size: .7em;
+  padding-top: 4px;
+}
+#season .content .blogside a {
+  font-size: .6em;
+  color: #313131;
+}
+@media (min-width: 650px) {
+  #season .content article.blogmain {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+  #season .content aside.blogside {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
+#shopping-cart {
+  z-index: 1000;
+}
+
 /*--------------------------------------------------------------
 4.4 Players
 --------------------------------------------------------------*/
@@ -466,6 +559,80 @@ body .scene p {
 /*--------------------------------------------------------------
 4.5 News
 --------------------------------------------------------------*/
+.news {
+  background-color: #edddbc;
+}
+.news header {
+  padding-bottom: 20px;
+}
+.news .content h1, .news .content h2, .news .content h3, .news .content h4, .news .content h5, .news .content h6 {
+  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  color: #575757;
+  font-size: .8em;
+  padding-bottom: 4px;
+  padding-top: 6px;
+  text-align: left;
+}
+.news .content a {
+  font-size: .7em;
+}
+.news .content .entry-meta {
+  font-size: .7em;
+}
+.news .content .blogmain {
+  background-color: #f2e7d0;
+}
+.news .content .blogmain h1.event-name {
+  font-size: 1em;
+}
+.news .content .blogmain h2.event-subtitle {
+  font-size: .6em;
+  text-transform: upper-roman;
+}
+.news .content .blogmain h3.event-producer {
+  font-size: .4em;
+  text-align: right;
+}
+.news .content .blogmain a.performance-datetime {
+  color: #721C1F;
+}
+.news .content .blogmain div a {
+  font-size: .7em;
+  color: #313131;
+}
+.news .content .blogside {
+  margin-left: 4px;
+}
+.news .content .blogside h1, .news .content .blogside h2, .news .content .blogside h3, .news .content .blogside h4, .news .content .blogside h5, .news .content .blogside h6 {
+  padding-bottom: 4px;
+  font-size: .7em;
+  padding-top: 4px;
+}
+.news .content .blogside a {
+  font-size: .6em;
+  color: #313131;
+}
+@media (min-width: 650px) {
+  .news .content .blogmain {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 66.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+  .news .content .blogside {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+  }
+}
+
 /*--------------------------------------------------------------
 4.6 Education
 --------------------------------------------------------------*/
@@ -507,6 +674,9 @@ body .scene p {
   content: " ";
   display: block;
   clear: both;
+}
+#sponsor form#paypal {
+  text-align: right;
 }
 #sponsor:hover {
   -webkit-filter: grayscale(0.6);
@@ -574,6 +744,8 @@ body .scene p {
 }
 #footer .content {
   text-align: center;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 #footer .content ul {
   list-style: none;

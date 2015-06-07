@@ -7,11 +7,11 @@
  * @package rcpTheme
  */
 
-get_header(); ?>
+get_header('blog'); ?>
+<section class="scene news container"> 
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
+THIS IS ARCHIVE
+<div id="primary" class="content">
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
@@ -21,20 +21,13 @@ get_header(); ?>
 				?>
 			</header><!-- .page-header -->
 
-			<?php /* Start the Loop */ ?>
+			<article class="blogmain"> <!-- BLOG MAIN -->
 			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'template-parts/content', 'single' ); ?>
+			<?php endwhile; // end of the loop. ?>
+		</article>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
+			<!-- <?php the_posts_navigation(); ?> -->
 
 		<?php else : ?>
 
@@ -42,8 +35,10 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<aside class="blogside"> <!-- THE SIDEBAR -->
+			<?php get_sidebar(); ?>
+		</aside>
+	</div>
+</section>
 <?php get_footer(); ?>

@@ -1,29 +1,23 @@
 <?php
 /**
- * @package rcpTheme
+ * @package rcptheme
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<!-- THIS IS CONTENT-SINGLE.PHP -->
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-		<div class="entry-meta">
-			<?php rcptheme_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'rcptheme' ),
-				'after'  => '</div>',
-			) );
-		?>
+	
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<!-- <footer class="entry-footer">
 		<?php rcptheme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer>-->
 </article><!-- #post-## -->
