@@ -18,11 +18,11 @@ $wide: 1200px;
 
 // Color Palettes 
 $gray	: #313131;	// standard grey
-$ltGray	: #4d4d4d;	// lighter grey
+$ltGray	: lighten(#4d4d4d, 55);	// lighter grey
 
 $red	: #721C1F; // carnegie hall
-$brown	: #8F6036;
-$yellow	: #D7B56C;
+// $brown	: #8F6036;
+// $yellow	: lighten(#D7B56C, 30);
 $tan	: #A38D74;
 $purple	: #6F45A3; // -triad
 
@@ -35,10 +35,15 @@ $blood	: #400400;
 $pink	: #B10782; // -analogous
 $green	: #9AB114; // -triad
 
-$light	: lighten($yellow, 25);
+$yellow	: lighten(#FFF86B, 20); // The Mirror // this is a brighter yellow
+
+
+$light	: #fff;
+$pale	: lighten($yellow, 10);
 $dark	: darken($gray, 5); // gray
 
 
+$headerBg			: $ltGray;
 $backgroundColor	: $light;
 $typeDefault		: $dark;
 $headersub			: $aqua;
@@ -65,8 +70,9 @@ $heavy		: 800;
 $headColor	: $typeDefault;
 $fontColor	: lighten($dark, 20);
 
-$headFont	: $thin 1.8rem/1.8rem $fontSans;
+$headFont	: $thin 2rem/2rem $fontSans;
 $mainFont	: $thin 1rem/1.6rem $fontSerif;
+$callFont	: $thin 1.6rem/2rem $fontScript;
 
 
 // WP VARIABLES

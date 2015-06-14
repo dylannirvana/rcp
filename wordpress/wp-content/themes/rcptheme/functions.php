@@ -63,10 +63,10 @@ function rcptheme_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'rcptheme_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+	// add_theme_support( 'custom-background', apply_filters( 'rcptheme_custom_background_args', array(
+	// 	'default-color' => 'ffffff',
+	// 	'default-image' => '',
+	// ) ) );
 }
 endif; // rcptheme_setup
 add_action( 'after_setup_theme', 'rcptheme_setup' );
@@ -115,6 +115,16 @@ function rcptheme_scripts() {
 	wp_enqueue_style( 'rcptheme-style', get_stylesheet_uri() );
 
 // SCRIPTS ============
+	// TYPEKIT 
+ 	wp_enqueue_script( 'typekit', '//use.typekit.net/pct7efk.js'); 
+
+ 	function typekit_script() {
+ 		if ( wp_script_is( 'typekit', 'done' )) {
+ 			echo '<script type="text/javascript">try{Typekit.load();}catch(e){}</script>';
+ 		}
+ 	};
+ 	// END TYPEKIT
+
 	// jQuery CDN
 	wp_enqueue_script( 'rcptheme-jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array() );
 	// // Bootstrap JavaScript CDN
@@ -131,6 +141,28 @@ function rcptheme_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rcptheme_scripts' );
+
+function remove_dashboard_meta() {
+        // remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
+        // remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+        // remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
+        remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+        remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
+        // remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+        // remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+        // remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
+        remove_meta_box( 'dashboard_pages', 'dashboard', 'side' );
+}
+add_action( 'admin_init', 'remove_dashboard_meta' );
+
+// Add custom logo
+function custom_login_logo() {
+  echo '<style type="text/css">
+    h1 { background-image:url('.get_bloginfo('stylesheet_directory').'/images/logo/full_rcp_logo.png) !important; }
+    </style>';
+}
+add_action('login_head', 'custom_login_logo');
 
 /**
  * Implement the Custom Header feature.

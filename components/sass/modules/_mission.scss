@@ -1,5 +1,6 @@
 #mission {
-	background: lighten($yellow, 10);
+	// background: $yellow;
+	
 
 	.content {
 
@@ -10,7 +11,6 @@
 			font-family: $headFont;
 			color: lighten($gray, 15);
 			text-transform: uppercase;
-			padding-bottom: 10px;
 		}
 		
 	}

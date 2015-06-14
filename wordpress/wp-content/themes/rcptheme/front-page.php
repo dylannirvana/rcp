@@ -2,17 +2,22 @@
 <?php get_header('special') ?>
 
 <!-- Table of Contents
-    1. BRAND 
-      1.1 Navigation
-      1.2 Carousel
+    1. Brand          
+      1.1 Navigation  (in header)
+
+      1.2 Carousel    (start body)
     2. MISSION 
     3. SEASON 
     4. PLAYERS 
-    5. EDUCATION
-    6. SPONSOR -->
+    5. NEWS / BLOG
+    6. SPONSOR 
+
+    7. Footer         (in footer)
+    -->
 
 
 <!-- 1.2 Carousel  -->
+
   <div class="carousel fade" data-ride="carousel" id="featured">
     <ol class="carousel-indicators"></ol>
 
@@ -29,19 +34,19 @@
   </div><!-- END featured carousel -->
 </header>
 
+<!-- Main class / fluid container -->
 <div class="main fluid-container">
 
-<!-- 2. MISSION   -->
+<!-- 2. MISSION ====================================  -->
+
   <section class="scene" id="mission">
     <article class="content container">
-
-      <h1>Our Mission</h1>
-      <!-- <div> 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>  -->
-
-    <!-- WORDPRESS QUERY  ========================== -->
+      
+      <header>
+        <h1>Our Mission</h1>  
+        <div class="deck">
+          
+    <!-- WordPress queries get the CMS content for each scene -->
       <?php 
         $query = new WP_query( 'pagename=mission');
         if ( $query->have_posts() ) {
@@ -54,54 +59,54 @@
         }
         wp_reset_postdata();
        ?>
-      <!-- END WORDPRESS -->
-
+      <!-- END WordPress -->
+       </div>
+      </header>
     </article>
   </section>
 
- <!-- 3. SEASON -->
- <!- WP ARTFULLY CALENDAR ->
+ <!-- 3. SEASON ======================================= -->
+
   <section class="scene" id="season">
-  <!-- <h1>The Ritz Chamber Players Perform</h1> -->
+    <header class="container">
+      <h1 id="performance-title">The 2015 Performance Season</h1>
+      <!-- <div class="deck"> -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>      
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>       
+      <!-- </div> -->
+    </header>
+
     <div class=" content container">
-      <!-- <article class="blogmain">  -->
+      <article class="blogmain"> 
+        
         <!-- This is a nested loop -->
-
-
+        <!-- Main News or Blog section -->
+        <!-- WordPress query -->
         <?php 
           $query = new WP_query( 'cat=5' );
           if ( $query->have_posts()) {
             while ( $query->have_posts() ) {
               $query->the_post();
-              echo '<div>';
+              echo "<div>";
               // echo '<div class=" content">';
-              echo '<article class="blogmain">';
+              // echo '<article class="blogmain">';
               echo ( do_shortcode( get_post_meta( $post->ID , 'art' , true ) ) ); 
               echo "<p>";
               the_content(); 
               echo "</p>";            
-              echo "</article>";
+              // echo "</article>";
               // echo "</div>";
               echo "</div>";
             }
           }
           wp_reset_postdata();
-
-
-          // $query = new WP_query('cat=5');
-          // if ( $query->have_posts() ) {
-          //   while ( $query->have_posts() ) {
-          //     $query->the_post();
-          //     the_content();
-          //   }
-          // }
-          // wp_reset_postdata();
-
-
-
-
          ?>
-      <!-- </article>  -->
+
+      </article> 
+      <!-- END WordPress -->
+
+
+<!-- Sidebar WordPress query -->
       <aside class="blogside"> 
         <?php 
         $query = new WP_query( 'pagename=this-season');
@@ -119,20 +124,21 @@
         }
         wp_reset_postdata();
        ?>
+       <!-- END WordPress -->
+
       </aside> 
     </div>
   </section>
 
-  <!-- 4. PLAYERS -->
-   <!- PHOTO GRID ->
-  <section class="scene" id="players"> 
-    
+  <!-- 4. PLAYERS ======================================= -->
+
+  <section class="scene" id="players">    
     <header >
     <!-- <div class="content container">  -->
       <h1>Meet the Players</h1>
       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque explicabo numquam cupiditate, ab cum eos, placeat similique iusto nisi possimus vitae ad, earum sit tempora eligendi, at nemo amet ea!</p> -->
-      
-      <!-- WORDPRESS QUERY ========================== -->
+
+      <!-- WordPress query for section ========================== -->
       <?php 
         $query = new WP_query( 'pagename=players');
         if ( $query->have_posts() ) {
@@ -145,20 +151,12 @@
         }
         wp_reset_postdata();
        ?>
-      <!-- END WORDPRESS -->
+      <!-- END WordPress -->
+
     </header>
-
-     <!--  <article class="players halfheight" id="annHobson">
-        <div class="content">
-          <h2>Ann Hobson guitar</h2>
-          <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p>
-        </div>
-      </article> -->
-
-
-      
  
-          <!-- WORDPRESS QUERY  ========================== -->
+<!-- Photo grid -->
+          <!-- WordPress query for the individual players  ========================== -->
        <?php 
           $query = new WP_query( 'category_name=player' );
           if ( $query->have_posts() ) {
@@ -181,23 +179,18 @@
           wp_reset_postdata();
          ?>
 
-      <!-- END WORDPRESS -->
+      <!-- END WordPress -->
 
       </article>
-
-
-
-
-</section> <!-- END Players -->
+  </section> <!-- END Players -->
 
 <!-- 5. News / Blog SECTION ========================================================= -->
 
-  <section class="scene news" id="news"> <!-- SCENE -->
-    <header>   
-      <h1>News</h1>
-    </header>
-
+  <section class="scene news" id="news"> 
+    <h1>News</h1>
     <div class="content container"> <!-- CONTENT CONTAINER -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>      
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>      
       
       <article class="blogmain"> <!-- BLOG MAIN -->
         <!-- THE QUERY -->
@@ -206,7 +199,6 @@
           if ( $query->have_posts()) {
             while ( $query->have_posts() ) {
               $query->the_post();
-          query_posts('showposts=2');
               echo "<div class='left'>";
               echo "<h2>";
               echo get_the_title();
@@ -222,27 +214,23 @@
 
       </article> <!-- END BLOG MAIN -->
 
-
       <aside class="blogside"> <!-- THE SIDEBAR -->
-
         <?php get_sidebar( 'special' ); ?>
-
       </aside> <!-- END sidebar class -->
 
     </div> <!-- END content container -->
-
   </section> <!-- END News / Blog Section -->
 
 
 
-  <!- 6. SPONSOR WP Artfully donation page -->
+  <!-- 6. SPONSOR donation page ============================= -->
   <section class="scene" id="sponsor">
     <article class="content ">
+    <header>
       <h1>Sponsorship</h1>
       <!-- <p>Our hotel boasts wireless Internet in every common room, and guest room, including the dining area and lobby. And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art And, we have a state-of-the-art meeting room with video projectors, high definition video screens, and advanced sound technology.</p> -->
-    
-  
-
+    </header>
+      
     <!-- WORDPRESS QUERY ========================== -->
       <?php 
         $query = new WP_query( 'pagename=sponsor');
@@ -256,6 +244,9 @@
         }
         wp_reset_postdata();
        ?>
+      <!-- END WORDPRESS -->
+
+       <!-- PayPal donation -->
         <div>
          <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_s-xclick">
@@ -264,13 +255,10 @@
           <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
         </form>
       </div>
-      <!-- END WORDPRESS -->
 
 
     </article>
   </section>
-
-
 
 </div><!-- main -->
 

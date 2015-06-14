@@ -158,17 +158,17 @@ header .navbar-default .navbar-nav a {
   padding: 5px 8px;
 }
 header .navbar-default .navbar-nav a:hover {
-  color: #D7B56C;
+  color: #fffdd1;
 }
 header .navbar-default .navbar-nav .active a {
   font-weight: 200;
-  color: #D7B56C;
+  color: #fffdd1;
   background: transparent;
-  border-bottom: 2px solid #D7B56C;
+  border-bottom: 2px solid #fffdd1;
   text-shadow: none;
 }
 header .navbar-default .navbar-nav .active a:hover {
-  color: #D7B56C;
+  color: #fffdd1;
   background: transparent;
   text-shadow: none;
 }
@@ -257,20 +257,29 @@ header .navbar.inbody .navbar-nav {
 --------------------------------------------------------------*/
 body {
   position: relative;
-  background: #f2e7d0;
+  background: #fff;
+}
+body header .deck p {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
 }
 body .scene {
   padding-top: 70px;
-  padding-bottom: 80px;
-  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
-  font: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
-  background: #f2e7d0;
+  padding-bottom: 100px;
+  font-family: 200 2rem/2rem brandon-grotesque, Helvetica, sans-serif;
+  font: 200 2rem/2rem brandon-grotesque, Helvetica, sans-serif;
+  border-bottom: 1px solid #d9d9d9;
 }
 body .scene h1, body .scene h2, body .scene h3, body .scene h4, body .scene h5, body .scene h6 {
-  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  font-family: 200 2rem/2rem brandon-grotesque, Helvetica, sans-serif;
   color: #575757;
   text-transform: uppercase;
-  padding-bottom: 10px;
+  padding-bottom: 36px;
 }
 body .scene strong {
   font-weight: 600;
@@ -278,6 +287,11 @@ body .scene strong {
 body .scene p {
   padding-bottom: 10px;
   font: 200 1rem/1.6rem "kepler-std-extended-display", Times, serif;
+  color: #4b4b4b;
+}
+
+.wp-core-ui .button-primary {
+  background: #fffdd1;
 }
 
 /*--------------------------------------------------------------
@@ -331,7 +345,7 @@ body .scene p {
   font-family: "kepler-std-extended-display", Times, serif;
   font-size: 1.6rem;
   text-transform: none;
-  color: #cccccc;
+  color: white;
   font-weight: 400;
   margin: 0;
   padding-left: 32px;
@@ -357,38 +371,40 @@ body .scene p {
 /*--------------------------------------------------------------
 4.2 Mission
 --------------------------------------------------------------*/
-#mission {
-  background: #e2c994;
-}
 #mission .content {
   padding-left: 10%;
   padding-right: 10%;
 }
 #mission .content h1, #mission .content h2, #mission .content h3, #mission .content h4, #mission .content h5, #mission .content h6 {
-  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  font-family: 200 2rem/2rem brandon-grotesque, Helvetica, sans-serif;
   color: #575757;
   text-transform: uppercase;
-  padding-bottom: 10px;
 }
 
 /*--------------------------------------------------------------
 4.3 Season
 --------------------------------------------------------------*/
 #season {
-  background-color: #edddbc;
+  background: linear-gradient(to bottom, #fffdd1, #ffffff);
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-#season header {
-  padding-bottom: 20px;
+#season #performance-title {
+  font-size: 2.8rem;
 }
-#season .content {
-  margin-top: 12px;
+#season span.callout {
+  font: 200 1.6rem/2rem "grafolita-script", Zapf Chancery, Times, serif;
+  color: #4b4b4b;
+  text-decoration: initial !important;
 }
 #season .content h1, #season .content h2, #season .content h3, #season .content h4, #season .content h5, #season .content h6 {
-  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  font-family: 200 2rem/2rem brandon-grotesque, Helvetica, sans-serif;
   color: #575757;
-  font-size: .8em;
-  padding-bottom: 6px;
-  padding-top: 8px;
+  text-align: right;
 }
 #season .content a {
   font-size: .7em;
@@ -397,17 +413,28 @@ body .scene p {
   font-size: .7em;
 }
 #season .content .blogmain {
-  background-color: #f2e7d0;
+  padding-left: 34px !important;
+}
+#season .content .blogmain .performance {
+  text-align: right;
 }
 #season .content .blogmain h1.event-name {
-  font-size: 1em;
+  font-size: 1em !important;
   margin-top: 36px;
+  padding-bottom: 6px;
+  font-style: 600 !important;
 }
-#season .content .blogmain h2.event-subtitle {
-  font-size: .6em;
+#season .content .blogmain .event-subtitle {
+  font-size: .7em;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 #season .content .blogmain h3.event-producer {
-  font-size: .4em;
+  text-transform: none !important;
+  font-size: .5em;
+  margin-top: -4px;
+  padding-top: -4px;
+  padding-bottom: 0px;
 }
 #season .content .blogmain a.performance-datetime {
   color: #721C1F;
@@ -420,12 +447,15 @@ body .scene p {
   font-size: .8em;
 }
 #season .content .blogside {
-  margin-left: 4px;
+  margin-top: 36px;
+}
+#season .content .blogside p {
+  color: #4b4b4b !important;
+  padding-top: 6px !important;
 }
 #season .content .blogside h1, #season .content .blogside h2, #season .content .blogside h3, #season .content .blogside h4, #season .content .blogside h5, #season .content .blogside h6 {
-  padding-bottom: 4px;
-  font-size: .7em;
-  padding-top: 4px;
+  font-size: .5em;
+  padding-top: 6px;
 }
 #season .content .blogside a {
   font-size: .6em;
@@ -461,7 +491,7 @@ body .scene p {
 --------------------------------------------------------------*/
 #players {
   padding: 0;
-  background-color: #313131;
+  background-color: #d9d9d9;
 }
 #players:before, #players:after {
   content: '';
@@ -471,8 +501,10 @@ body .scene p {
   clear: both;
 }
 #players header {
-  background-color: #f2e7d0;
+  background-color: #fff;
   padding: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 #players .players {
   position: relative;
@@ -535,7 +567,7 @@ body .scene p {
   bottom: 0;
   background: rgba(36, 36, 36, 0.7);
   padding: 30px;
-  color: #f2e7d0;
+  color: #fff;
   font-weight: 200;
   line-height: 130%;
   max-height: 100%;
@@ -543,7 +575,7 @@ body .scene p {
   overflow: auto;
 }
 #players .players .content h2 {
-  color: #f2e7d0;
+  color: #fff;
   line-height: 1em;
   font-size: .6em;
 }
@@ -559,18 +591,15 @@ body .scene p {
 /*--------------------------------------------------------------
 4.5 News
 --------------------------------------------------------------*/
-.news {
-  background-color: #edddbc;
-}
 .news header {
   padding-bottom: 20px;
 }
 .news .content h1, .news .content h2, .news .content h3, .news .content h4, .news .content h5, .news .content h6 {
-  font-family: 200 1.8rem/1.8rem brandon-grotesque, Helvetica, sans-serif;
+  font-family: 200 2rem/2rem brandon-grotesque, Helvetica, sans-serif;
   color: #575757;
   font-size: .8em;
   padding-bottom: 4px;
-  padding-top: 6px;
+  padding-top: 24px;
   text-align: left;
 }
 .news .content a {
@@ -579,28 +608,32 @@ body .scene p {
 .news .content .entry-meta {
   font-size: .7em;
 }
-.news .content .blogmain {
-  background-color: #f2e7d0;
+.news .content article.blogmain {
+  padding-left: 34px !important;
+  padding-right: 34px !important;
+  border-right: 1px solid #d9d9d9;
 }
-.news .content .blogmain h1.event-name {
+.news .content article.blogmain h1 {
+  font-size: 1em;
+  text-transform: none;
+}
+.news .content article.blogmain h2 {
+  text-transform: none !important;
   font-size: 1em;
 }
-.news .content .blogmain h2.event-subtitle {
-  font-size: .6em;
-  text-transform: upper-roman;
-}
-.news .content .blogmain h3.event-producer {
+.news .content article.blogmain h3 {
   font-size: .4em;
-  text-align: right;
+  text-align: left;
 }
-.news .content .blogmain a.performance-datetime {
+.news .content article.blogmain a {
   color: #721C1F;
 }
-.news .content .blogmain div a {
+.news .content article.blogmain div a {
   font-size: .7em;
   color: #313131;
 }
 .news .content .blogside {
+  padding-top: 36;
   margin-left: 4px;
 }
 .news .content .blogside h1, .news .content .blogside h2, .news .content .blogside h3, .news .content .blogside h4, .news .content .blogside h5, .news .content .blogside h6 {
@@ -692,7 +725,7 @@ body .scene p {
   padding: 20px;
   margin-top: 200px;
   margin-bottom: 200px;
-  background: rgba(242, 231, 208, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -716,7 +749,7 @@ body .scene p {
 }
 #sponsor button {
   float: right;
-  color: #f2e7d0;
+  color: #fff;
   border: none;
   background-color: #000D42;
   font-size: 1em;
@@ -759,7 +792,7 @@ body .scene p {
   color: #4b4b4b;
 }
 #footer .content ul li a:hover {
-  color: #dcbf80;
+  color: #fffeeb;
 }
 #footer .content ul li img {
   width: 30px;

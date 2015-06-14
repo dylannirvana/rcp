@@ -895,7 +895,7 @@ li#wp-admin-bar-menu-toggle {
 		border: 1px solid transparent;
 	}
 
-	#wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before {
+	#wpadminbar #wp-admin-bar-menu-toggle .logoSans65:before {
 		content: '\f228';
 		display: inline-block;
 		float: right;

@@ -10,7 +10,7 @@
 get_header('blog'); ?>
 <section class="scene news container"> 
 
-THIS IS ARCHIVE
+<!-- THIS IS ARCHIVE -->
 <div id="primary" class="content">
 		<?php if ( have_posts() ) : ?>
 

@@ -13,7 +13,7 @@
 get_header('blog'); ?>
 <section class="scene news container"> 
 
-THIS IS PAGE.PHP
+<!-- THIS IS PAGE.PHP -->
 	<div id="primary" class="content">
       
 	    <article class="blogmain"> <!-- BLOG MAIN -->

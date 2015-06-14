@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme.
+ * Main header for the Single Page app.
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
@@ -16,18 +16,13 @@
 
 <!-- From HTML -->
   <title>Ritz Chamber Players</title>
-<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
- -->  <!-- <link rel="stylesheet" href="css/style.css"> -->
-<!-- <script src="js/prefixfree.min.js"></script> -->
 
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<header>
-
+<header> <!-- This tag closes in the index body, front-page.php -->
 <!-- 1. BRAND  -->
 <!-- 1.1 Navigation  -->
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 

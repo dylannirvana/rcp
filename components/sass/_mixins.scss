@@ -29,6 +29,26 @@
 	background-size: cover;
 }
 
+@mixin fade(
+	// $image,
+	$grDir: to bottom,
+	$opStart: .40,
+	$opEnd: 0,
+	$bgPos: center center
+	) {
+	background: linear-gradient(
+		$grDir,
+		$yellow,
+		$light
+		); 
+	background-repeat: no-repeat;
+	background-position: $bgPos;
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+} // fade
+
 @mixin clearfix {
 	&:before,
 	&:after {

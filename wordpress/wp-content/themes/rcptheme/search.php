@@ -6,7 +6,7 @@
  */
 
 get_header(); ?>
-THIS IS SEARCH
+<!-- THIS IS SEARCH -->
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 

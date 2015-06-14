@@ -1,6 +1,10 @@
 .news {
 	// General styles of section
-	background-color: lighten($yellow, 20);
+	// @include fade();
+	// margin-left: 3%;
+	// margin-right: 3%;
+	// background-color: $yellow;
+	// @include fade();
 
 	header {
 		padding-bottom: 20px;
@@ -13,8 +17,9 @@
 			font-size: .8em;
 			// text-transform: uppercase;
 			padding-bottom: 4px;
-			padding-top: 6px;
+			padding-top: 24px;
 			text-align: left;
+
 		}
 
 		a {
@@ -27,21 +32,29 @@
 		}
 			
 
-		.blogmain {
-			background-color: lighten($yellow, 25);
+		article.blogmain {
+			// background-color: $light;
+			padding-left: 34px !important;
+			padding-right: 34px !important;
+			// border-style: solid;
+			// border-width: 1px;
+			// border-color: $ltGray;
+			border-right: 1px solid $ltGray;
+
 			// @include span(8 of 12)
-			h1.event-name {
+			h1 {
+				font-size: 1em;
+				text-transform: none;
+			}
+			h2 {
+				text-transform: none !important;
 				font-size: 1em;
 			}
-			h2.event-subtitle {
-				font-size: .6em;
-				text-transform: upper-roman;
-			}
-			h3.event-producer {
+			h3 {
 				font-size: .4em;
-				text-align: right;
+				text-align: left;
 			}
-			a.performance-datetime {
+			a {
 				color: $red;
 			}
 			div a {
@@ -51,6 +64,7 @@
 		}
 
 		.blogside {
+			padding-top: 36;
 			// @include span(4 at 9)
 			#{headings()} {
 				padding-bottom: 4px;

@@ -8,13 +8,23 @@
 get_header('blog'); ?>
 <section class="scene news container"> 
 
-THIS IS SINGLE.PHP
+<!-- THIS IS SINGLE.PHP -->
 	<div id="primary" class="content">
       
 	    <article class="blogmain"> <!-- BLOG MAIN -->
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'single' ); ?>
-			<?php endwhile; // end of the loop. ?>
+
+			<?php 
+			while ( have_posts() ) : the_post(); 
+				get_template_part( 'template-parts/content', 'single' ); 
+
+				 // If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+
+			
+			endwhile; // end of the loop. ?>
+
 		</article>
 
 	    <aside class="blogside"> <!-- THE SIDEBAR -->

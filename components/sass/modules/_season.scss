@@ -1,22 +1,45 @@
 #season {
 	// General styles of section
-	background-color: lighten($yellow, 20);
+	// background-color: lighten($yellow, 20);
+	@include fade();
 	
-	header {
-		padding-bottom: 20px;
+	// header {
+	// 	padding-bottom: 20px;
+	// }
+	
+	
+	// padding-top: 0px !important;
+	#performance-title {
+		font-size: 2.8rem;
 	}
 
+	span.callout {
+		font: $callFont;
+		color: lighten($gray, 10);
+		text-decoration: initial !important;
+	}
 
 	.content {	
 		#{headings()} {
 			font-family: $headFont;
 			color: lighten($gray, 15);
-			font-size: .8em;
+			// font-size: .8em;
 			// text-transform: uppercase;
-			padding-bottom: 6px;
-			padding-top: 8px;
-			// text-align: left;
+			// padding-bottom: 6px;
+			// padding-top: 12px;
+			text-align: right;
+
 		}
+		
+		// div#arfully-event {
+		// 	select.ticket_count {
+		// 		color: $red !important;
+		// 	}
+		// }
+		
+		// .concert {
+		// 	padding-bottom: 42px;
+		// }
 
 		a {
 			font-size: .7em;
@@ -26,21 +49,39 @@
 			font-size: .7em;
 		}
 		
-		margin-top: 12px;	
-
+		// margin-top: 12px;	
+		
+		
 		.blogmain {
-			background-color: lighten($yellow, 25);
+			// background-color: $yellow;
+			padding-left: 34px !important;
+			// border-style: solid;
+			// border-width: 1px;
+
+			.performance {
+			    text-align: right;
+			}
+
+
 			// @include span(8 of 12)
 			h1.event-name {
-				font-size: 1em;
+				font-size: 1em !important;
 				margin-top: 36px;
+				padding-bottom: 6px;
+				font-style: $bold !important;
 			}
-			h2.event-subtitle {
-				font-size: .6em;
+			.event-subtitle {
+				font-size: .7em;
+				margin-bottom: 0px;
+				padding-bottom: 0px;
 			}
 			h3.event-producer {
-				font-size: .4em;
+				text-transform: none !important;
+				font-size: .5em;
 				// text-align: right;
+				margin-top: -4px;
+				padding-top: -4px;
+				padding-bottom: 0px;
 			}
 			a.performance-datetime {
 				color: $red;
@@ -57,14 +98,18 @@
 
 		.blogside {
 			// @include span(4 at 9)
-			#{headings()} {
-				padding-bottom: 4px;
-				font-size: .7em;
-				padding-top: 4px;
+			// background-color: $yellow;
+			margin-top: 36px;
+
+			p {
+				color: lighten($gray, 10) !important;
+				padding-top: 6px !important;
 			}
 
-			margin-left: 4px;
-			
+			#{headings()} {
+				font-size: .5em;
+				padding-top: 6px;
+			}
 			
 			a {
 				font-size: .6em;

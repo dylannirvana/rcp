@@ -3,7 +3,7 @@
  * The template for displaying comments.
  *
  * The area of the page that contains both current comments
- * and the comment form.
+ * and the form.
  *
  * @package rcpTheme
  */
@@ -19,7 +19,7 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-
+<!-- THIS IS COMMENTS TEMPLATE -->
 	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
