@@ -69,11 +69,26 @@
 
   <section class="scene" id="season">
     <header class="container">
-      <h1 id="performance-title">The 2015 Performance Season</h1>
+      <!-- <h1 id="performance-title">The 2015 Performance Season</h1> -->
       <!-- <div class="deck"> -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>      
+<!--         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>      
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis, eligendi incidunt blanditiis consectetur velit dolorem nulla itaque, facere numquam eveniet voluptate cumque, soluta illum nobis, amet ab. Quam, maxime.</p>       
-      <!-- </div> -->
+ -->      <!-- </div> -->
+
+ <!-- WordPress queries get the CMS content for each scene -->
+      <?php 
+        $query = new WP_query( 'pagename=season');
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            echo "<div>";
+            the_content();
+            echo "</div>";
+          }
+        }
+        wp_reset_postdata();
+       ?>
+      <!-- END WordPress -->
     </header>
 
     <div class=" content container">
@@ -90,10 +105,10 @@
               echo "<div>";
               // echo '<div class=" content">';
               // echo '<article class="blogmain">';
-              echo ( do_shortcode( get_post_meta( $post->ID , 'art' , true ) ) ); 
-              echo "<p>";
               the_content(); 
-              echo "</p>";            
+              echo ( do_shortcode( get_post_meta( $post->ID , 'art' , true ) ) ); 
+              // echo "<p>";
+              // echo "</p>";            
               // echo "</article>";
               // echo "</div>";
               echo "</div>";
@@ -169,7 +184,7 @@
               echo "<h2>";
               echo get_the_title();
               echo "</h2>";
-              echo "<p>";
+              echo "<p id='bio'>";
               the_content();             
               echo "</p>";
               echo "</div>";

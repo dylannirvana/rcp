@@ -9,7 +9,7 @@
 	
 	
 	// padding-top: 0px !important;
-	#performance-title {
+	h1 {
 		font-size: 2.8rem;
 	}
 
@@ -61,7 +61,10 @@
 			.performance {
 			    text-align: right;
 			}
-
+			
+			.ticket-type-description {
+				display: visible;
+			}
 
 			// @include span(8 of 12)
 			h1.event-name {

@@ -393,7 +393,7 @@ body .scene p {
   -o-background-size: cover;
   background-size: cover;
 }
-#season #performance-title {
+#season h1 {
   font-size: 2.8rem;
 }
 #season span.callout {
@@ -417,6 +417,9 @@ body .scene p {
 }
 #season .content .blogmain .performance {
   text-align: right;
+}
+#season .content .blogmain .ticket-type-description {
+  display: visible;
 }
 #season .content .blogmain h1.event-name {
   font-size: 1em !important;
@@ -567,7 +570,7 @@ body .scene p {
   bottom: 0;
   background: rgba(36, 36, 36, 0.7);
   padding: 30px;
-  color: #fff;
+  color: #fff !important;
   font-weight: 200;
   line-height: 130%;
   max-height: 100%;
@@ -583,6 +586,7 @@ body .scene p {
   position: relative;
   padding: 5px 0;
   display: none;
+  color: #fff !important;
 }
 #players .players .content:hover p {
   display: block;
